@@ -1,11 +1,11 @@
-def validar_contrasena(contrasena):
+def validar_contrasena(password):
     tiene_letras = False
     tiene_numeros = False
 
-    if len(contrasena) < 6:  
+    if len(password) < 6:  
         return "La contraseña debe tener al menos 6 caracteres."
 
-    for caracter in contrasena:
+    for caracter in password:
         if caracter.isalpha(): 
             tiene_letras = True
         elif caracter.isdigit():
@@ -19,6 +19,6 @@ def validar_contrasena(contrasena):
 #*CODE MAIN*#
 print("-PROGRAMA: VALIDAR CONTRASEÑA-")
 
-contrasena = input("Ingrese su contraseña: ")
-resultado = validar_contrasena(contrasena)
+password = input("Ingrese su contraseña: ")
+resultado = validar_contrasena(password)
 print(resultado)
