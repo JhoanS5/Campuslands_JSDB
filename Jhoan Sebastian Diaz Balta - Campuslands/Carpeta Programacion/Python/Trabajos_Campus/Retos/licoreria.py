@@ -64,39 +64,56 @@ def eliminar_producto():
     else:
         print(f"Producto: {nombre_producto} No existe...")
 
+usuarios_admin = {
+    "jhoan": "1234",
+    "daniela": "12345"
+}
+
+def autenticar_admin():
+    intentos = 3
+    
+    while intentos > 0:
+        usuario = input("Ingrese el nombre de usuario: ")
+        clave = input("Digite la clave: ")
+        
+        if usuario in usuarios_admin and usuarios_admin[usuario] == clave:
+            print(f"Login Correcto. Bienvenido {usuario}")
+            return True
+        else:
+            intentos -= 1
+            print(f"Credenciales incorrectas. Intentos restantes {intentos}")
+    print("Acceso denegado")
+    return False
+
 #*CODE MAIN*#
 while True:
     menu()
     opcion = int(input("Seleccione una opcion: "))
 
     if opcion == 1:    
-        password_usuario = input("Ingrese la contraseña del administrador: ")
-
-        if password_usuario == PASSWORD:
-            print("\nAcceso permitido.\n")
-            while True:
-                menu_administrador()
-                opcion_administrador = int(input("Ingrese una opcion: "))
-
-                if opcion_administrador == 1:
-                    crear_producto()
-
-                elif opcion_administrador == 2:
-                    read_productos()
-
-                elif opcion_administrador == 3:
-                    actualizar_producto()
+        respuesta = autenticar_admin()
+        
+        while respuesta:
+            menu_administrador()
+            opcion_administrador = int(input("Ingrese una opcion: "))
+            
+            if opcion_administrador == 1:
+                crear_producto()
                 
-                elif opcion_administrador == 4:
-                    eliminar_producto()
+            elif opcion_administrador == 2:
+                read_productos()
+
+            elif opcion_administrador == 3:
+                actualizar_producto()
                 
-                elif opcion_administrador == 5:
-                    print("\nSaliendo del programa...")
-                    break
-                else:
-                    print("\nOpcion invalida...\n")
-        else:
-            print("\nContraseña incorrecta.\n")
+            elif opcion_administrador == 4:
+                eliminar_producto()
+                
+            elif opcion_administrador == 5:
+                print("\nSaliendo del programa...")
+                break
+            else:
+                print("\nOpcion invalida...\n")
 
     elif opcion == 2:
         while True:
