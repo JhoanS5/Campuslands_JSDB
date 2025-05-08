@@ -15,6 +15,7 @@ values() Devuelve una vista de los valores del diccionario.
 pop(key[], default) Elimina y devuelve el valor asociado a key. Si no existe, devuelve
     default (o lanza Key error)
     
+del clientes[nombre_cliente]
 
 d.popitem() Elimina y deuvelve un par (clave, valor) arbitrario. Si el diccionario esta vacio, lanza Key Error
 
