@@ -1,0 +1,22 @@
+{
+    "Poker": {
+        "Precio": 6000,
+        "Cantidad": 30
+    },
+    "Aguardiente": {
+        "Precio": 21000,
+        "Cantidad": 5
+    },
+    "Vodka": {
+        "Precio": 45000,
+        "Cantidad": 2
+    },
+    "Aguila": {
+        "Precio": 5000,
+        "Cantidad": 50
+    },
+    "Jack Daniels Honey": {
+        "Precio": 110000,
+        "Cantidad": 10
+    }
+}
