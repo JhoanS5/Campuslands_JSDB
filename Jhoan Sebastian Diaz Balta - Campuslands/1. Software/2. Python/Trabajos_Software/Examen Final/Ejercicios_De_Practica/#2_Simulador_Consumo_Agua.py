@@ -52,14 +52,9 @@ def dividir_personas(pago_total, num_persona):
         return total_por_persona
     return None
 
-def mostrar_resultados(consumo, tarifa, impuesto, pago_total, total_por_persona, num_persona):
-    print("------ INFORMACION DE PAGO DE AGUAS KAPITAL ------")
-    print(f"""Consumo del hogar: {consumo}
-Tarifa: {tarifa}$
-Impuesto: {impuesto}%
-Total a pagar: {pago_total}$""")
-    if (total_por_persona is not None) and (num_persona > 1):
-        print(f"Total a pagar por {num_persona} personas: {total_por_persona}$")
+def mostrar_resultados():
+
+    pass
 #*CODE MAIN*#
 
 print("------ AGUAS CAPITAL ------")
