@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio Consulta</title>
+</head>
+
+<body>
+    <h1>Como Citar Fuentes en HTML</h1>
+
+    <h2>Citar Articulos (de Revista o de Sitio Web)</h2>
+    <table border="">
+        <thead>
+            <tr>
+                <th>Elemento</th>
+                <th>Etiqueta HTML<br>Sugerida</th>
+                <th>Atributo <sub>itemprop</sub><br>(Scheme.org)</th>
+                <th>Notas</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Contenedor<br>Principal</td>
+                <td><code>&lt;article&gt;</code></td>
+                <td></td>
+                <td>Contiene la información del libro.</td>
+            </tr>
+            <tr>
+                <td>Titulo del Libro</td>
+                <td> <code>&lt;h3&gt;</code> con <code>&lt;span&gt;</code></td>
+                <td></td>
+                <td>code>&lt;h3&gt;</code> para el encabezado, &lt;cite&gt; para indicar que es el titulo del libro.</td>
+            </tr>
+            <tr>
+                <td>Autor(es)</td>
+                <td> <code>&lt;p&gt;</code> con <code>&lt;span&gt;</code></td>
+                <td>author</td>
+                <td>Puedes repetir el <code>&lt;span&gt;</code> para múltiples autores.</td>
+            </tr>
+            <tr>
+                <td>Publicado en <br> (Revista/Sitio)</td>
+                <td> <code>&lt;p&gt;</code> con <code>&lt;span&gt;</code></td>
+                <td>publisher</td>
+                <td>Nombre de la revista o sitio web.</td>
+            </tr>
+            <tr>
+                <td>Fecha de Publicacion</td>
+                <td> <code>&lt;p&gt;</code> con <code>&lt;time&gt;</code></td>
+                <td></td>
+                <td>Usa <code>datetime = "YYYY-MM-DD" para la fecha legible por maquinas.</code></td>
+            </tr>
+            <tr>
+                <td>Enlace (URL)</td>
+                <td> <code>&lt;p&gt;</code> con <code>&lt;a&gt;</code></td>
+                <td>url</td>
+                <td>Enlace directo al articulo. Usa <code>target="_blank" para abrir en una nueva pestaña.</code></td>
+            </tr>
+            <tr>
+                <td>DOI(opcional)</td>
+                <td> <code>&lt;p&gt;</code> con <code>&lt;span&gt;</code></td>
+                <td>identifier</td>
+                <td>Identificador de objeto digital, si esta disponible.</td>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+    <h2>Citar Revistas Digitales (la publicación periódica)</h2>
+    <table border="">
+        <thead>
+            <tr>
+                <th>Elemento</th>
+                <th>Etiqueta HTML<br>Sugerida</th>
+                <th>Atributo <sub>itemprop</sub><br>(Schema.org)</th>
+                <th>Notas</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Contenedor<br>Principal</td>
+                <td><code>&lt;article&gt;</code></td>
+                <td></td>
+                <td>Contiene la información de la revista como publicación.</td>
+            </tr>
+            <tr>
+                <td>Nombre de la Revista</td>
+                <td><code>&lt;h3&gt;</code> con <code>&lt;cite&gt;</code></td>
+                <td>`name`</td>
+                <td><code>&lt;h3&gt;</code> para el encabezado, <code>&lt;cite&gt;</code> para indicar que es el título de la revista.</td>
+            </tr>
+            <tr>
+                <td>ISSN</td>
+                <td><code>&lt;p&gt;</code> con <code>&lt;span&gt;</code></td>
+                <td>`issn`</td>
+                <td>Número Internacional Normalizado de Publicaciones Seriadas.</td>
+            </tr>
+            <tr>
+                <td>Editor</td>
+                <td><code>&lt;p&gt;</code> con <code>&lt;span&gt;</code></td>
+                <td>`publisher`</td>
+                <td>Entidad responsable de la publicación.</td>
+            </tr>
+            <tr>
+                <td>Tipo de Publicación</td>
+                <td><code>&lt;p&gt;</code></td>
+                <td></td>
+                <td>Puedes indicar "Publicación periódica en línea".</td>
+            </tr>
+            <tr>
+                <td>Sitio Web de la Revista</td>
+                <td><code>&lt;p&gt;</code> con <code>&lt;a&gt;</code></td>
+                <td>`url`</td>
+                <td>Enlace a la página principal de la revista.</td>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+
+    <h2>Citar Libros</h2>
+    <table border="">
+        <thead>
+            <tr>
+                <th>Elemento</th>
+                <th>Etiqueta HTML<br>Sugerida</th>
+                <th>Atributo <sub>itemprop</sub><br>(Schema.org)</th>
+                <th>Notas</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Contenedor<br>Principal</td>
+                <td><code>&lt;article&gt;</code></td>
+                <td></td>
+                <td>Contiene la información del libro.</td>
+            </tr>
+            <tr>
+                <td>Título del Libro</td>
+                <td><code>&lt;h3&gt;</code> con <code>&lt;cite&gt;</code></td>
+                <td>`name`</td>
+                <td><code>&lt;h3&gt;</code> para el encabezado, <code>&lt;cite&gt;</code> para indicar que es el título del libro.</td>
+            </tr>
+            <tr>
+                <td>Autor(es)</td>
+                <td><code>&lt;p&gt;</code> con <code>&lt;span&gt;</code></td>
+                <td>`author`</td>
+                <td>Puedes repetir el <code>&lt;span&gt;</code> para múltiples autores.</td>
+            </tr>
+            <tr>
+                <td>Editorial</td>
+                <td><code>&lt;p&gt;</code> con <code>&lt;span&gt;</code></td>
+                <td>`publisher`</td>
+                <td>Nombre de la editorial que publicó el libro.</td>
+            </tr>
+            <tr>
+                <td>Año de Publicación</td>
+                <td><code>&lt;p&gt;</code> con <code>&lt;time&gt;</code></td>
+                <td>`datePublished`</td>
+                <td>Usa <code>datetime="YYYY"</code> para el año legible por máquinas.</td>
+            </tr>
+            <tr>
+                <td>Enlace (URL) <br> (si es digital)</td>
+                <td><code>&lt;p&gt;</code> con <code>&lt;a&gt;</code></td>
+                <td>`url`</td>
+                <td>Solo si es un libro digital con un enlace directo.</td>
+            </tr>
+            <tr>
+                <td>Formato (opcional)</td>
+                <td><code>&lt;p&gt;</code> con <code>&lt;span&gt;</code></td>
+                <td>`bookFormat`</td>
+                <td>Por ejemplo, "ePub", "PDF", "Libro físico".</td>
+            </tr>
+            <tr>
+                <td>ISBN</td>
+                <td><code>&lt;p&gt;</code> con <code>&lt;span&gt;</code></td>
+                <td>`isbn`</td>
+                <td>Número Estándar Internacional de Libro.</td>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+
+    <h2>Citar a una Inteligencia Artificial (IA)</h2>
+    <p>
+        Nota: Las guías de estilo para citar IAs están en evolución. Esta tabla propone una estructura común basada en cómo se citan otras fuentes no tradicionales y se adapta a las mejores prácticas actuales (como las sugerencias de APA para IA).
+    </p>
+    <table border="">
+        <thead>
+            <tr>
+                <th>Elemento</th>
+                <th>Etiqueta HTML<br>Sugerida</th>
+                <th>Atributo <sub>itemprop</sub><br>(Schema.org)</th>
+                <th>Notas</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Contenedor<br>Principal</td>
+                <td><code>&lt;article&gt;</code></td>
+                <td></td>
+                <td>Contiene la información de la interacción con la IA.</td>
+            </tr>
+            <tr>
+                <td>Autor (Desarrollador de la IA)</td>
+                <td><code>&lt;p&gt;</code> con <code>&lt;span&gt;</code></td>
+                <td>`author`</td>
+                <td>Nombre del desarrollador o empresa de la IA (ej., OpenAI, Google).</td>
+            </tr>
+            <tr>
+                <td>Título de la Interacción / Mensaje</td>
+                <td><code>&lt;h3&gt;</code> con <code>&lt;cite&gt;</code> o <code>&lt;span&gt;</code></td>
+                <td>`name` o `headline`</td>
+                <td>Descripción de la interacción o el mensaje utilizado para generar la respuesta.<br> (Ej. "Prompt de investigación sobre X").</td>
+            </tr>
+            <tr>
+                <td>Nombre del Modelo de IA</td>
+                <td><code>&lt;p&gt;</code> con <code>&lt;span&gt;</code></td>
+                <td>`softwareVersion`</td>
+                <td>Nombre específico del modelo de IA (ej., ChatGPT-4, Gemini 1.5 Pro).</td>
+            </tr>
+            <tr>
+                <td>Fecha de Consulta/Generación</td>
+                <td><code>&lt;p&gt;</code> con <code>&lt;time&gt;</code></td>
+                <td>`datePublished` o `dateCreated`</td>
+                <td>Fecha exacta en la que se consultó o generó la respuesta.</td>
+            </tr>
+            <tr>
+                <td>URL o Fuente (si aplica)</td>
+                <td><code>&lt;p&gt;</code> con <code>&lt;a&gt;</code></td>
+                <td>`url`</td>
+                <td>Si existe un enlace permanente a la conversación o al sistema de IA.</td>
+            </tr>
+            <tr>
+                <td>Versión/Build (opcional)</td>
+                <td><code>&lt;p&gt;</code> con <code>&lt;span&gt;</code></td>
+                <td>`softwareVersion`</td>
+                <td>Número de versión o build específico del modelo, si es relevante y está disponible.</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>
