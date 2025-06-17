@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>EJEMPLO FORMULARIO</h1>
+    <form>
+        <div>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" value="Jhoan">
+        </div>
+        
+
+        <div>
+            <br>
+            <label for="email">Email:</label>
+            <input type="email" required id="email" placeholder="No olvide el @">
+        </div>
+        
+        <div>
+            <br>
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password">
+        </div>
+
+        <div>
+            <br>
+            <label for="phone">Telefono:</label>
+            <input type="tel" id="phone">
+        </div>
+
+        <div>
+            <br>
+            <label for="age">Email:</label>
+            <input type="number" id="age" min="0">
+        </div>
+
+        <div>
+            <br>
+            <label for="web">Sitio Web:</label>
+            <input type="url" id="web">
+        </div>
+
+        <div>
+            <br>
+            <label for="date">Email:</label>
+            <input type="date" id="date">
+        </div>
+
+        <div>
+            <label>
+                Acepta términos y condiciones.
+                <input type="checkbox" value="Si">
+            </label>
+        </div>
+
+        <div>
+            <br>
+            Sexo:
+            <input type="radio" id="masculino" value="masculino" name="sexo">
+            <label for="masculino">Masculino</label>
+
+            <input type="radio" id="Femenino" value="Femenino" name="sexo">
+            <label for="masculino">Femenino</label>
+        </div>
+
+        <div>
+            <label for="rango">Nivel de satisfaccion:</label>
+            <input type="range" min="0" max="100">
+
+            <label for="color">Color:</label>
+            <input type="color" id="color">
+        </div>
+
+        <div>
+            <label for="file">Subir Archivos:</label>
+            <input type="file" id="file">
+        </div>
+
+        <div>
+            <input type="hidden" id="">
+        </div>
+
+        <div>
+            <label for="pais">Pais:</label>
+            <select name="pais" id="pais">
+                <option disabled selected>Seleccione:</option>
+                <option value="mexico">Mexico</option>
+                <option value="colombia">Colombia</option>
+                <option value="brazil">Brazil</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="ciudad">Ciudad (sugerencias):</label>
+            <input list="ciudades" id="ciudad">
+            <datalist id="ciudades">
+                <option value="Pasto"></option>
+                <option value="Cucuta"></option>
+                <option value="Bucaramanga"></option>
+                <option value="Medellin"></option>
+            </datalist>
+        </div>
+
+        <label for="comentarios">Comentarios:</label>
+        <textarea id="comentarios" rows="4" cols="40"></textarea>
+
+        <button type="submit">Enviar:</button>
+
+    </form>
+</body>
+</html>
