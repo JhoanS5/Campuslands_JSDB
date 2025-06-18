@@ -1,0 +1,37 @@
+body{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.hero{
+    height: 100vh;
+    background: linear-gradient(to right, #1f1c2c, #928dab, #ff000f);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+
+.content h1{
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.button{
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    border: 1px solid white;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    opacity: 1;
+    transition: background 0.3s ease;
+}
+
+.button:hover{
+    background-color: rgba(255, 255, 255, 0.3);
+    color: black;
+}
