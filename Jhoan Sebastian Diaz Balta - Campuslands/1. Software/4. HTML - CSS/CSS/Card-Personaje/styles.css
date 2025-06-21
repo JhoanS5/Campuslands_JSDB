@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Share+Tech+Mono&display=swap');
+
+:root {
+    --card-height: 300px;
+    --card-width: calc(var(--card-height) / 1.5);
+  }
+*{
+    box-sizing: border-box;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+    font-family: 'Share Tech Mono', sans-serif;
+    color: #dddddd;
+}
+
+
+.card{
+    background-color: #111111;
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 900px;
+    margin: auto;
+    box-shadow: 0 0 25px rgba(208, 0, 0, 0.3);
+    border: 2px solid #d00000;
+    animation: pulseGlow 2s infinite alternate; /* Investigar Para Que Funciona (Junto Con KeyFrames)*/ 
+}
+
+@keyframes pulseGlow{
+    from{
+        box-shadow: 0 0 10px #d00000, 0 0 20px #ffc300;
+    }
+    to{
+        box-shadow: 0 0 10px #ffc300, 0 0 20px #d00000;
+    }
+}
+
+h1, h2{
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    color: #ffc300;
+    text-shadow: 0 0 10px #d00000;
+    margin-bottom: 20px;
+}
+
+h1{
+    font-size: 2.8rem;
+    padding-bottom: 40px;
+}
+
+.section{
+    margin-bottom: 40px;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #1a1a1a;
+    color: #ffc300;
+    font-size: 1.1em;
+}
+
+th, td{
+    border: 1px solid #d00000;
+    padding: 12px;
+    text-align: left;
+}
+
+ul, ol{
+    padding-left: 20px;
+    font-size: 1.05em;
+
+}
+
+.badge{
+    background-color: #ffc300;
+    color: #0a0a0a;
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-size: 0.85em;
+}
+
+.stat-highlight{
+    color: #d00000;
+    font-weight: bold;
+    text-shadow: 0 0 5px #ff4d4d;
+}
+
+p{
+    font-size: 1.1em;
+}
+
+.glow{
+    color: #dddddd;
+    text-shadow: 0 0 6px #d00000, 0 0 12px #ffc300;
+}
+
+.cardimg{
+    width: var(--card-width);
+    height: var(--card-height);
+    position: relative;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-content: center;
+    align-items: flex-end;
+    padding: 0 36px;
+    perspective: 2500px;
+    border-radius: 5px;
+    
+}
+
+.wrapper{
+    transition: all 0.5s;
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+    border-radius: 5px;
+}
+
+.cover-image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.cardimg:hover .wrapper{
+    transform: perspective(900px) translateY(-5%) rotateX(25deg) translateZ(0);
+    box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow:2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow:2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+    border-radius: 5px;
+}
+
+.wrapper::before,
+.wrapper::after{
+    content: "";
+    opacity: 0;
+    width: 100%;
+    height: 80px;
+    transition: all 0.5s;
+    position: absolute;
+    left: 0;
+    border-radius: 5px;
+}
+
+.wrapper::before{
+    top: 0;
+    height: 100%;
+    background-image: linear-gradient(
+        to top,
+        transparent 46%,
+        rgba(12, 13, 19, 0.5)68%,
+        rgba(12, 13, 19) 97%
+    );
+    border-radius: 5px;
+}
+
+.wrapper::after{
+    bottom: 0;
+    opacity: 1;
+    background-image: linear-gradient(
+        to bottom,
+        transparent 46%,
+        rgba(12, 13, 19, 0.5) 68%,
+        rgba(12, 13, 19)97%
+    );
+    border-radius: 5px;
+}
+
+.cardimg:hover .wrapper::before,
+.wrapper::after{
+    opacity: 1;
+}
+.cardimg:hover .wrapper::after{
+    height: 120px;
+}
+.title {
+    width: 100%;
+    transition: transform 0.5s;
+}
+.cardimg:hover .title {
+    transform: translate3d(0%, -50px, 100px);
+}
+  .character {
+    width: 100%;
+    opacity: 0;
+    transition: all 0.5s;
+    position: absolute;
+    z-index: -1;
+  }
+  .cardimg:hover .character {
+    opacity: 1;
+    transform: translate3d(0%, -30%, 100px);
+  }

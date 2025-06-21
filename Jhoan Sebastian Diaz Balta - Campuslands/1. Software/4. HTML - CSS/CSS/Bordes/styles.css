@@ -1,0 +1,14 @@
+.mi-caja{
+    border: 2px double blue;
+    width: 300px;
+    height: 100px;
+    padding: 20px;
+    text-align: center;
+    line-height: 60px; /*La caja no se alarga */
+    /* padding-top: 60px; La caja se alarga tambien*/
+    font-size: 20px;
+    /* border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px; */
+    border-radius: 10px 0px; /*Con Porcentaje lo convierto en un circulo 50%*/
+    
+}
