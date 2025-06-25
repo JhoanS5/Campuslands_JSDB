@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Share+Tech+Mono&display=swap');
+
+html{
+    font-size: 100%; /*1rem = 16px por defecto */
+
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /*Hace el calculo de los elementos que tiene y como los calcula en las pantallas */
+    font-family: "Poppins", sans-serif;
+}
+
+body{
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #7e7d7d, #afaeae);
+    color: #eee;
+}
+
+.dashboard-container{
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 2.5rem;
+    border-radius: 0.9rem;
+    box-shadow: 0 0.6rem 1.2rem rgba(0, 0, 0, 0.4), 0 0 2.5rem rgba(255, 255, 255, 0.05) inset;
+    text-align: center;
+    max-width: 43rem;
+    width: 90%;
+    box-sizing: border-box;
+    position: relative;
+
+}
+
+.dashboard-container::before{
+    content: '';
+    position: absolute;
+    top: -0.1rem;
+    left: -0.1rem;
+    right: -0.1rem;
+    bottom: -0.1rem;
+    background: linear-gradient(45deg, #888, #bbb, #888);
+    border-radius: 1rem;
+    z-index: -1;
+    filter: blur(0.5rem);
+    opacity: 0.7;
+}
+
+.dashboard-container h1{
+    font-weight: 600;
+    margin-bottom: 1.8rem;
+    color: #fff;
+    font-size: 2.5rem;
+}
+
+.dashboard-container p{
+    color: #ccc;
+    line-height: 1.6rem;
+    margin-bottom: 1.2rem;
+}
+
+.dashboard-container ul{
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1.8rem;
+}
+
+.dashboard-container ul li{
+    background-color: rgba(80, 80, 80, 0.5);
+    padding: 0.9rem;
+    margin-bottom: 0.6rem;
+    border-radius: 0.5rem;
+    text-align: left;
+    color: #eee;
+    box-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.2);
+}
+
+.logout-button{
+    display: inline-block;
+    background-color: #fff;
+    color: #333;
+    padding: 0.7rem 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    margin-top: 1.2rem;
+}
+
+.logout-button:hover{
+    background-color: #a59d9e;
+    box-shadow: 0 0 0.6rem rgba(10, 1, 1, 0.3);
+}

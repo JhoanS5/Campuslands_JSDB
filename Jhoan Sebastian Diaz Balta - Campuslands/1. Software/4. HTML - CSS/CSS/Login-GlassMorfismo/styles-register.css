@@ -1,0 +1,146 @@
+/* Importación de fuentes */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Share+Tech+Mono&display=swap');
+
+/* Reglas globales y reseteo */
+html {
+    font-size: 100%; /* 1rem = 16px por defecto */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* Estilo para el cuerpo de la página */
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #7e7d7d, #afaeae);
+    color: #eee;
+    overflow: hidden;
+}
+
+/* Contenedor principal del formulario de registro */
+.form-container {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 2.5rem;
+    border-radius: 0.9rem;
+    box-shadow: 0 0.6rem 1.2rem rgba(0, 0, 0, 0.4), 0 0 2.5rem rgba(255, 255, 255, 0.05) inset;
+    text-align: center;
+    max-width: 28rem;
+    width: 90%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* Efecto de brillo de borde para el contenedor */
+.form-container::before {
+    content: '';
+    position: absolute;
+    top: -0.1rem;
+    left: -0.1rem;
+    right: -0.1rem;
+    bottom: -0.1rem;
+    background: linear-gradient(45deg, #888, #bbb, #888);
+    border-radius: 1rem;
+    z-index: -1;
+    filter: blur(0.5rem);
+    opacity: 0.7;
+}
+
+/* Estilos para el título h2 (Registrarse) */
+h2 {
+    font-weight: 600;
+    margin-bottom: 1.8rem;
+    color: #fff;
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+/* Estilos para los párrafos de texto */
+p {
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+    font-size: 0.95rem;
+}
+
+/* Estilos para los grupos de entrada (input y icono) */
+.input-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+/* Estilos para los campos de entrada de texto */
+.input-group input {
+    width: calc(100% - 0rem);
+    padding: 0.8rem 1rem 0.8rem 2.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: rgba(80, 80, 80, 0.7);
+    color: #eee;
+    font-size: 1rem;
+    box-sizing: border-box;
+    outline: none;
+    transition: box-shadow 0.3s ease;
+}
+
+.input-group input::placeholder {
+    color: #aaa;
+}
+
+.input-group input:focus {
+    box-shadow: 0 0 0 2px rgba(170, 170, 170, 0.5);
+}
+
+/* Estilos para los iconos de Boxicons */
+.input-group .bx {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+    font-size: 1.2rem;
+    pointer-events: none;
+}
+
+/* Estilos para el botón de acción (Crear Cuenta) */
+.action-button {
+    display: inline-block;
+    background-color: #fff;
+    color: #333;
+    padding: 0.7rem 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 1.2rem;
+    min-width: 8rem;
+}
+
+.action-button:hover {
+    background-color: #a59d9e;
+    box-shadow: 0 0 0.6rem rgba(10, 1, 1, 0.3);
+}
+
+/* Estilos para el enlace de navegación (Ya tengo una cuenta) */
+.nav-link {
+    display: block;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #fff;
+}
