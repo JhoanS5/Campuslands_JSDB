@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Share+Tech+Mono&display=swap');
+
+html{
+    font-size: 100%; /*1rem = 16px por defecto */
+
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /*Hace el calculo de los elementos que tiene y como los calcula en las pantallas */
+    font-family: "Poppins", sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('https://i.pinimg.com/736x/c6/4f/fc/c64ffcd63008bc1c3ac3823db4e91987.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.wrapper{
+    margin-top: 2.5rem;
+    width: 26.25rem;
+    border: 0.1rem solid rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(0.9rem);
+    box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.2);
+    color: white;
+    border-radius: 1rem;
+    padding: 1.2rem 1.8rem;
+}
+
+.wrapper h1{
+    font-size: 2rem;
+    text-align: center;
+
+}
+
+.wrapper .input-box{
+    width: 100%;
+    height: 3.1rem;
+    position: relative;
+    margin: 1.8rem 0;
+}
+
+.input-box input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: 0.1rem solid rgba(255, 255, 255, 0.2);
+    outline: none;
+    font-size: 1rem;
+    color: white;
+    border-radius: 2.5rem;
+    /* padding: 1rem; */
+    text-align: center;
+}
+
+.input-box input::placeholder{
+    color: white;
+}
+
+.input-box input:focus::placeholder{
+    color: transparent;
+}
+
+.input-box input:focus{
+    box-shadow: 0 0 0.6rem rgba(10, 1, 1, 0.3);
+}
+
+.input-box i{
+    position: absolute;
+    right: 1.2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+}
+
+.wrapper .remember-password{
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    margin: -0.9rem 0 0.9rem;
+    
+}
+
+.remember-password label input{
+    accent-color: #fff;
+    margin-right: 0.2rem;
+}
+
+.remember-password a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.remember-password a:hover{
+    text-decoration: underline;
+}
+
+.wrapper .btn{
+    width: 100%;
+    height: 2.8rem;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 2.5rem;
+    font-size: 1rem;
+    color: #333;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.wrapper .btn:hover{
+    box-shadow: 0 0 0.6rem rgba(10, 1, 1, 0.3);
+}
+
+.wrapper .register-link{
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    text-align: center;
+    font-size: 0.8rem;
+    margin: 1.2rem 0 0.9rem;
+}
+
+.wrapper .register-link a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.wrapper .register-link a:hover{
+    text-decoration: underline
+}

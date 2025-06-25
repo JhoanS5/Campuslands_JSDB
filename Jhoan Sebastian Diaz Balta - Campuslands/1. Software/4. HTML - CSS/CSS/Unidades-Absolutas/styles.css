@@ -1,0 +1,7 @@
+.cuadro-px{
+    border: 2px solid  black;
+    width: 200px;
+    height: 100px;
+    text-align: center;
+    line-height: 100px; /**/
+}
