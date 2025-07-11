@@ -1,0 +1,362 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* -----------------------------------------------------
+   *** RESET BÁSICO Y TIPOGRAFÍA ***
+   -----------------------------------------------------
+   Estos estilos aseguran que el navegador no agregue márgenes o paddings por defecto
+   y definen la fuente base para todo el documento.
+*/
+* {
+    margin: 0; /* Elimina el margen exterior por defecto de todos los elementos */
+    padding: 0; /* Elimina el relleno interior (padding) por defecto de todos los elementos */
+    box-sizing: border-box; /* Asegura que el padding y el border se incluyan en el ancho y alto total de un elemento */
+    font-family: "Poppins", sans-serif; /* Establece la fuente Poppins como predeterminada para todo el texto */
+}
+
+html {
+    font-size: 62.5%; /* Establece el tamaño de fuente base a 10px (1rem = 10px). Esto facilita el uso de unidades 'rem' para tamaños relativos. */
+    height: 100%; /* Asegura que el elemento html ocupe toda la altura de la ventana del navegador */
+}
+
+/* -----------------------------------------------------
+   *** ESTILOS GENERALES DEL BODY ***
+   -----------------------------------------------------
+   Centra el contenido principal en la página y define el color de fondo.
+*/
+body {
+    display: flex; /* Utiliza Flexbox para el body. Esto permite alinear los elementos hijos fácilmente. */
+    justify-content: center; /* Centra el contenido horizontalmente dentro del body */
+    align-items: center; /* Centra el contenido verticalmente dentro del body */
+    min-height: 100vh; /* Asegura que el body tenga al menos el 100% de la altura de la ventana (viewport height) */
+    background-color: #3498db; /* Establece un color de fondo azul vibrante para toda la página */
+}
+
+/* -----------------------------------------------------
+   *** CONTENEDOR PRINCIPAL (LA TARJETA BLANCA) ***
+   -----------------------------------------------------
+   Este es el contenedor que simula la "tarjeta" blanca donde reside todo el contenido.
+*/
+.contenedor-principal {
+    background-color: white; /* Color de fondo blanco para la tarjeta */
+    padding: 5rem; /* Relleno interno de 50px en todos los lados para que el contenido no toque los bordes */
+    border-radius: 20px; /* Bordes ligeramente redondeados para la tarjeta */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Sombra sutil para dar un efecto de elevación */
+    width: 90%; /* La tarjeta ocupa el 90% del ancho disponible */
+    max-width: 85rem; /* Ancho máximo de la tarjeta blanca (850px) para que no sea demasiado ancha en pantallas grandes */
+    display: flex; /* Utiliza Flexbox para organizar el contenido interno de la tarjeta */
+    flex-direction: column; /* Apila los elementos hijos verticalmente */
+    align-items: center; /* Centra los elementos hijos horizontalmente dentro de la tarjeta */
+    padding-bottom: 5rem; /* Asegura espacio al final de la tarjeta, especialmente para el último contenido */
+}
+
+/* -----------------------------------------------------
+   *** SECCIÓN DEL ENCABEZADO PRINCIPAL (HEADER) ***
+   -----------------------------------------------------
+   Estilos para el título principal, el logo y el párrafo introductorio.
+*/
+.seccion-header { /* Clase aplicada a la etiqueta <section> del encabezado */
+    text-align: center; /* Centra el texto y los elementos en línea dentro de esta sección */
+    max-width: 70rem; /* Limita el ancho del contenido del encabezado a 700px */
+    margin-bottom: 5rem; /* Margen inferior de 50px para separar el encabezado de la primera sección de perfil */
+}
+
+.seccion-header h1 {
+    font-size: 3.2rem; /* Tamaño de fuente del título principal (32px) */
+    margin-bottom: 2rem; /* Margen inferior de 20px debajo del título */
+    color: #333333; /* Color de texto gris oscuro */
+}
+
+.seccion-header .imagen-logo {
+    max-width: 10rem; /* Ancho máximo del logo (100px) */
+    height: auto; /* Mantiene la proporción de la imagen */
+    margin: 2rem auto; /* Margen superior e inferior de 20px, y 'auto' para centrar horizontalmente */
+    display: block; /* Asegura que la imagen se comporte como un bloque para aplicar 'margin: auto' */
+}
+
+.seccion-header p {
+    font-size: 1.6rem; /* Tamaño de fuente del párrafo introductorio (16px) */
+    line-height: 1.5; /* Altura de línea para mejorar la legibilidad */
+    color: #555555; /* Color de texto gris */
+}
+
+/* -----------------------------------------------------
+   *** ESTILOS PARA CADA SECCIÓN DE PERFIL DE USUARIO ***
+   -----------------------------------------------------
+   Estos estilos se aplican a cada <section> que representa un perfil completo (Daniel, Lina, María).
+*/
+.seccion-perfil { /* Clase aplicada a la etiqueta <section> de cada perfil */
+    width: 100%; /* Cada sección de perfil ocupa todo el ancho de su contenedor padre */
+    margin-top: 4rem; /* Margen superior de 40px para separar cada perfil del contenido anterior (otro perfil o el encabezado) */
+    margin-bottom: 4rem; /* Margen inferior de 40px para separar cada perfil del contenido siguiente (otro perfil o la sección final) */
+}
+
+/* -----------------------------------------------------
+   *** CONTENEDOR GRID PARA LA IMAGEN Y EL TEXTO (info-principal-perfil) ***
+   -----------------------------------------------------
+   Esta es la parte clave para el layout de dos columnas (imagen + texto) y su inversión.
+*/
+.info-principal-perfil { /* Contenedor que usa CSS Grid para dividir la imagen/cita del bloque de información */
+    display: grid; /* Convierte este contenedor en una rejilla (Grid Container) */
+
+    /* Define las columnas de la rejilla por defecto (imagen izquierda, info derecha) */
+    grid-template-columns: minmax(250px, 0.7fr) 1.3fr;
+        /* Define dos columnas:
+           - Primera columna: Mínimo 250px de ancho, si hay más espacio, ocupa 0.7 "fracciones" del espacio disponible. Esto es para la imagen.
+           - Segunda columna: Ocupa 1.3 "fracciones" del espacio disponible. Esto es para la información de texto. */
+
+    /* Define las áreas con nombre en la rejilla para facilitar el reordenamiento */
+    grid-template-areas: "imagen info";
+        /* Crea un "plano" de la rejilla. Por defecto, la primera celda se llama "imagen" y la segunda "info". */
+
+    gap: 4rem; /* Espacio de 40px entre las columnas (y entre filas, si las hubiera) de la rejilla */
+    align-items: start; /* Alinea los elementos de la rejilla al inicio de su celda verticalmente (arriba). */
+    width: 100%; /* El contenedor Grid ocupa todo el ancho disponible */
+    justify-content: center; /* Intenta centrar el contenido de la rejilla si el ancho es menor al total, aunque con width:100% y 'fr' es menos visible. */
+    margin-bottom: 4rem; /* Margen inferior de 40px. Esto crea el espacio entre la parte superior del perfil (imagen/info) y la sección de "Obstáculos/Oportunidades" que está justo debajo, dentro del mismo perfil. */
+}
+
+/* Asigna los elementos HTML a las áreas definidas en 'grid-template-areas' */
+.info-principal-perfil .perfil-imagen {
+    grid-area: imagen; /* El div con la clase 'perfil-imagen' se posicionará en el área llamada "imagen" */
+}
+
+.info-principal-perfil .perfil-info {
+    grid-area: info; /* El div con la clase 'perfil-info' se posicionará en el área llamada "info" */
+}
+
+/* -----------------------------------------------------
+   *** REGLA PARA EL GRID INVERTIDO (Perfil de Lina) ***
+   -----------------------------------------------------
+   Este selector aplica estilos SOLO a los contenedores '.info-principal-perfil' que TAMBIÉN tienen la clase 'reversed-grid'.
+   Esto es lo que invierte el orden para Lina.
+*/
+.info-principal-perfil.reversed-grid {
+    grid-template-areas: "info imagen"; /* ¡Aquí se invierte el orden! Ahora el área "info" va primero y el área "imagen" va después. */
+    /* También invertimos el orden de las columnas para que los tamaños 'fr' se apliquen correctamente a los elementos reordenados. */
+    grid-template-columns: 1.3fr minmax(250px, 0.7fr); /* Ahora la primera columna (info) es más ancha y la segunda (imagen) es más estrecha. */
+}
+
+/* -----------------------------------------------------
+   *** ESTILOS DE LA COLUMNA DE LA IMAGEN (PERFIL-IMAGEN) ***
+   -----------------------------------------------------
+   Estilos específicos para el bloque que contiene la foto, el nombre y la cita.
+*/
+.perfil-imagen {
+    display: flex; /* Utiliza Flexbox para apilar los elementos internos (h2, img, p.perfil-cita) verticalmente */
+    flex-direction: column; /* Apila los elementos en columna */
+    align-items: center; /* Centra los elementos hijos horizontalmente */
+    text-align: center; /* Centra el texto dentro de este contenedor */
+}
+
+.perfil-imagen h2 { /* Nombre del usuario (Daniel, Lina, María) */
+    font-size: 2.2rem; /* Tamaño de fuente (22px) */
+    margin-bottom: 1.5rem; /* Margen inferior de 15px */
+    color: #333333; /* Color de texto gris oscuro */
+}
+
+.perfil-imagen img { /* Foto del perfil */
+    max-width: 18rem; /* Ancho máximo de la imagen (180px) */
+    height: auto; /* Mantiene la proporción de la imagen */
+    border-radius: 20px; /* Bordes redondeados para la imagen */
+    object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
+    border: 3px solid #eeeeee; /* Borde gris muy claro alrededor de la imagen */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); /* Sombra para la imagen */
+    margin-bottom: 1rem; /* Margen inferior de 10px entre la imagen y la cita */
+}
+
+.perfil-imagen .perfil-cita { /* La cita del usuario */
+    font-style: italic; /* Texto en cursiva */
+    font-size: 1.5rem; /* Tamaño de fuente (15px) */
+    color: #3498db; /* Color azul, el mismo del fondo de la página */
+    max-width: 20rem; /* Ancho máximo de la cita (200px) para que no se extienda demasiado */
+    margin: 1rem auto 0 auto; /* Margen superior de 10px, centrado horizontalmente, sin margen inferior */
+    line-height: 1.3; /* Altura de línea */
+    display: block; /* Se asegura de que se comporte como un bloque para centrar con 'margin: auto' */
+    text-align: center; /* Centra el texto de la cita */
+}
+
+/* -----------------------------------------------------
+   *** ESTILOS DE LA COLUMNA DE INFORMACIÓN DE TEXTO (PERFIL-INFO) ***
+   -----------------------------------------------------
+   Estilos para el bloque de texto con los detalles del usuario.
+*/
+.perfil-info {
+    max-width: 45rem; /* Ancho máximo del bloque de texto (450px) */
+    line-height: 1.6; /* Altura de línea para mejorar la legibilidad */
+    color: #555555; /* Color de texto gris */
+    text-align: left; /* Alinea el texto a la izquierda */
+}
+
+.perfil-info p {
+    margin-bottom: 0.8rem; /* Margen inferior de 8px para cada párrafo */
+    font-size: 1.5rem; /* Tamaño de fuente (15px) */
+}
+
+.perfil-info p:last-child {
+    margin-bottom: 0; /* El último párrafo de información no tiene margen inferior extra */
+}
+
+.perfil-info p strong { /* Títulos como "Nombre", "Atributo clave" */
+    font-size: 1.6rem; /* Tamaño de fuente (16px) */
+    color: #333333; /* Color de texto gris oscuro */
+    display: block; /* Asegura que el 'strong' se comporte como un bloque para estar en su propia línea */
+    margin-bottom: 0.5rem; /* Margen inferior de 5px */
+    margin-top: 1.5rem; /* Margen superior de 15px */
+}
+
+.perfil-info p:first-child strong {
+    margin-top: 0; /* El primer 'strong' dentro de 'perfil-info' no tiene margen superior */
+}
+
+/* -----------------------------------------------------
+   *** ESTILOS PARA LAS SECCIONES ADICIONALES (OBSTÁCULOS, OPORTUNIDADES) ***
+   -----------------------------------------------------
+   Estilos para las secciones que se encuentran dentro de cada perfil.
+*/
+.seccion-adicional { /* Contenedor de obstáculos y oportunidades */
+    width: 100%; /* Ocupa todo el ancho de su padre */
+    max-width: 70rem; /* Limita el ancho del contenido a 700px */
+    margin: 0 auto; /* Centra el bloque horizontalmente */
+    text-align: center; /* Centra el texto de los títulos y párrafos dentro de esta sección */
+}
+
+.seccion-adicional h3 {
+    font-size: 2rem; /* Tamaño de fuente (20px) */
+    color: #333333; /* Color de texto gris oscuro */
+    margin-bottom: 1rem; /* Margen inferior de 10px */
+}
+
+.seccion-adicional p {
+    font-size: 1.6rem; /* Tamaño de fuente (16px) */
+    color: #555555; /* Color de texto gris */
+    line-height: 1.5; /* Altura de línea */
+    margin-bottom: 1.5rem; /* Margen inferior de 15px */
+}
+
+/* -----------------------------------------------------
+   *** NUEVA SECCIÓN: ESTRATEGIA Y ALCANCE (FINAL) ***
+   -----------------------------------------------------
+   Estilos para la sección de "Estrategia" y "Alcance" al final de la página.
+*/
+.seccion-final { /* Clase aplicada a la etiqueta <section> de la parte final */
+    width: 100%; /* Ocupa todo el ancho de su padre */
+    max-width: 70rem; /* Limita el ancho del contenido a 700px */
+    margin-top: 5rem; /* Margen superior de 50px para separarla del último perfil */
+    text-align: center; /* Centra todo el contenido de esta sección (títulos, listas, etc.) */
+}
+
+.seccion-final h3 {
+    font-size: 2rem; /* Tamaño de fuente (20px) */
+    color: #333333; /* Color de texto gris oscuro */
+    margin-top: 2.5rem; /* Margen superior de 25px (para los títulos dentro de esta sección) */
+    margin-bottom: 1.5rem; /* Margen inferior de 15px */
+}
+
+.seccion-final p {
+    font-size: 1.6rem; /* Tamaño de fuente (16px) */
+    color: #555555; /* Color de texto gris */
+    line-height: 1.5; /* Altura de línea */
+    margin-bottom: 0.8rem; /* Margen inferior de 8px entre párrafos */
+}
+
+.seccion-final .estrategia-introduccion {
+    margin-bottom: 3rem; /* Margen inferior de 30px para separar esta parte de la sección de "Alcance" */
+}
+
+.seccion-final .estrategia-checklist {
+    list-style: none; /* Elimina los puntos de lista por defecto */
+    padding: 0; /* Elimina el padding por defecto de la lista */
+    margin: 0; /* Elimina el margen por defecto de la lista */
+    text-align: center; /* Centra los ítems de la lista */
+    margin-bottom: 2.5rem; /* Margen inferior de 25px entre la checklist y el título "Estrategia" */
+}
+
+.seccion-final .estrategia-checklist li {
+    font-size: 1.6rem; /* Tamaño de fuente (16px) */
+    color: #555555; /* Color de texto gris */
+    line-height: 1.5; /* Altura de línea */
+    margin-bottom: 0.8rem; /* Margen inferior de 8px para cada ítem de la lista */
+}
+
+.seccion-final .alcance-items {
+    display: flex; /* Utiliza Flexbox para organizar los ítems de alcance */
+    flex-wrap: wrap; /* Permite que los ítems se envuelvan en múltiples líneas si no hay espacio */
+    justify-content: center; /* Centra los ítems horizontalmente */
+    gap: 2.5rem 3.5rem; /* Espacio entre filas (25px) y entre columnas (35px) de los ítems de alcance */
+    margin-top: 2.5rem; /* Margen superior de 25px entre el título "Alcance" y los ítems */
+    margin-bottom: 3rem; /* Margen inferior de 30px después de los ítems de alcance */
+}
+
+.seccion-final .alcance-items p {
+    font-size: 1.6rem; /* Tamaño de fuente (16px) */
+    color: #555555; /* Color de texto gris */
+    margin: 0; /* Elimina márgenes extra que los párrafos pudieran tener */
+    white-space: nowrap; /* Evita que el texto de cada ítem de alcance se rompa en varias líneas */
+}
+
+/* -----------------------------------------------------
+   *** RESPONSIVIDAD PARA PANTALLAS PEQUEÑAS (MÓVIL) ***
+   -----------------------------------------------------
+   Estos estilos se aplican cuando el ancho de la ventana es de 768px o menos.
+*/
+@media (max-width: 768px) {
+    .contenedor-principal {
+        padding: 3rem; /* Reduce el padding de la tarjeta principal en móvil */
+    }
+
+    .seccion-header {
+        margin-bottom: 3rem; /* Reduce el margen inferior del encabezado en móvil */
+    }
+
+    .seccion-perfil {
+        margin-top: 3rem; /* Reduce el margen superior de cada perfil en móvil */
+        margin-bottom: 3rem; /* Reduce el margen inferior de cada perfil en móvil */
+    }
+
+    .info-principal-perfil,
+    .info-principal-perfil.reversed-grid { /* Aplica estos estilos a ambos tipos de grid (normal e invertido) en móvil */
+        grid-template-columns: 1fr; /* Cambia a una sola columna: los elementos se apilarán verticalmente */
+        grid-template-areas: "imagen" "info"; /* Define que la imagen siempre va encima de la información en móvil */
+        justify-items: center; /* Centra los ítems horizontalmente en la columna única */
+        gap: 2.5rem; /* Reduce el espacio entre la imagen y la info en móvil */
+        margin-bottom: 3rem; /* Reduce el margen entre la info-principal y la sección adicional en móvil */
+    }
+
+    .perfil-imagen,
+    .perfil-info {
+        max-width: 100%; /* Asegura que la imagen y el bloque de info no excedan el ancho disponible */
+    }
+
+    .perfil-info {
+        text-align: center; /* Centra el texto de información en móvil */
+    }
+
+    .perfil-info p strong {
+        text-align: center; /* Centra los títulos fuertes en móvil */
+    }
+
+    .seccion-adicional {
+        margin: 0 auto; /* Asegura que la sección adicional siga centrada en móvil */
+    }
+
+    /* Ajustes para la nueva sección final en móvil */
+    .seccion-final {
+        margin-top: 4rem; /* Ajusta el margen superior de la sección final en móvil */
+        margin-bottom: 2rem; /* Ajusta el margen inferior de la sección final en móvil */
+    }
+
+    .seccion-final h3 {
+        font-size: 1.8rem; /* Ligeramente más pequeño el título en móvil */
+    }
+
+    .seccion-final .estrategia-checklist li,
+    .seccion-final .alcance-items p {
+        font-size: 1.5rem; /* Ligeramente más pequeño el texto de listas en móvil */
+        text-align: center; /* Asegura el centrado en móvil */
+    }
+
+    .seccion-final .alcance-items {
+        gap: 2rem 2.5rem; /* Ajusta el espacio entre ítems de alcance en móvil */
+        justify-content: center; /* Re-centra los ítems */
+    }
+}
