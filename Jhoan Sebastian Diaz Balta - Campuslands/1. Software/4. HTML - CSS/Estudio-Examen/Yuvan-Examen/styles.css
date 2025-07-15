@@ -1,0 +1,176 @@
+/* -----------------------------------------------------
+   *** RESET BÁSICO Y TIPOGRAFÍA ***
+   -----------------------------------------------------
+   Estos estilos aseguran que el navegador no agregue márgenes o paddings por defecto
+   y definen la fuente base para todo el documento.
+*/
+body {
+    margin: 0; /* Elimina el margen exterior por defecto del body */
+    padding: 0;
+    font-family: Arial, sans-serif; /* Establece la fuente Arial como predeterminada */
+    background-color: #66b3ff; /* Color de fondo azul claro para toda la página */
+}
+
+/* -----------------------------------------------------
+   *** CONTENEDOR PRINCIPAL (LA TARJETA BLANCA) ***
+   -----------------------------------------------------
+   Este es el contenedor que simula la "tarjeta" blanca donde reside todo el contenido.
+*/
+.contenedor {
+    max-width: 900px; /* Ancho máximo de la tarjeta (900px) */
+    margin: 40px auto; /* Margen superior/inferior de 40px, y 'auto' para centrar horizontalmente */
+    background-color: white; /* Color de fondo blanco para la tarjeta */
+    border-radius: 20px; /* Bordes ligeramente redondeados para la tarjeta */
+    padding: 30px; /* Relleno interno de 30px en todos los lados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra sutil para dar un efecto de elevación */
+}
+
+/* -----------------------------------------------------
+   *** ESTILOS DEL ENCABEZADO ***
+   -----------------------------------------------------
+   Estilos para el título principal y el logo.
+*/
+header {
+    text-align: center; /* Centra el texto y los elementos en línea dentro del encabezado */
+    margin-bottom: 30px; /* Margen inferior de 30px para separar el encabezado del primer perfil */
+}
+
+.logo {
+    width: 120px; /* Ancho del logo */
+    margin: 10px auto; /* Margen superior/inferior de 10px, y 'auto' para centrar horizontalmente */
+    display: block; /* Asegura que el logo se comporte como un bloque para aplicar 'margin: auto' */
+}
+
+/* -----------------------------------------------------
+   *** ESTILOS DE LAS SECCIONES DE USUARIO (PERFILES) ***
+   *** ¡ESTA ES LA PARTE CON DISPLAY FLEX! ***
+   -----------------------------------------------------
+   Estos estilos aplican a cada <section> que representa un perfil de usuario.
+*/
+.usuario {
+    display: flex; /* ¡Convierte este contenedor en un Flex Container! Sus hijos directos (info-izquierda, info-derecha) se convertirán en ítems flex. */
+    flex-wrap: wrap; /* Permite que los ítems flex se envuelvan a la siguiente línea si no hay suficiente espacio horizontal (útil para responsividad). */
+    gap: 20px; /* Crea un espacio de 20px entre los ítems flex (entre la imagen y el texto). */
+    margin-bottom: 40px; /* Margen inferior de 40px para separar cada perfil del siguiente. */
+    border-bottom: 1px solid #000000; /* Línea divisoria en la parte inferior de cada perfil */
+    padding-bottom: 20px; /* Relleno inferior de 20px para que la línea no esté pegada al contenido. */
+}
+
+/* Regla para invertir el orden de los elementos Flex (para Lina) */
+.usuario.invertido {
+    flex-direction: row-reverse; /* ¡Esta es la magia en Flexbox! Invierte el orden visual de los ítems en la fila.
+                                    Para el perfil de Lina, el '.info-derecha' aparecerá antes que el '.info-izquierda'. */
+}
+
+/* Estilos para la columna de la izquierda (imagen, nombre, frase) */
+.info-izquierda {
+    flex: 1; /* Permite que este ítem (la columna de la imagen) crezca y se encoja.
+                Un 'flex: 1' con un 'min-width' hace que ocupe una parte proporcional del espacio. */
+    min-width: 200px; /* Asegura que esta columna tenga un ancho mínimo de 200px. */
+    text-align: center; /* Centra el texto y la imagen dentro de esta columna. */
+}
+
+.info-izquierda img {
+    width: 150px; /* Ancho de la imagen de perfil */
+    border-radius: 12px; /* Bordes ligeramente redondeados para la imagen */
+    margin-bottom: 10px; /* Margen inferior de 10px entre la imagen y la frase. */
+}
+
+.frase {
+    color: #3399ff; /* Color de texto azul para la frase */
+    font-style: italic; /* Texto en cursiva */
+}
+
+/* Estilos para la columna de la derecha (información detallada) */
+.info-derecha {
+    flex: 2; /* Permite que este ítem (la columna de información) crezca y se encoja, ocupando el doble de "partes" que 'info-izquierda'. */
+    min-width: 250px; /* Asegura que esta columna tenga un ancho mínimo de 250px. */
+}
+
+.info-derecha p {
+    margin: 6px 0; /* Margen vertical de 6px para los párrafos de información. */
+}
+
+/* -----------------------------------------------------
+   *** ESTILOS GENERALES DE TÍTULOS Y LISTAS ***
+   -----------------------------------------------------
+   Aplicados a los h2 y ul en general, incluyendo la sección final.
+*/
+h2 {
+    margin-top: 30px; /* Margen superior de 30px para los títulos h2 */
+    text-align: center; /* Centra los títulos h2 */
+}
+
+ul {
+    list-style: none; /* Elimina los puntos de lista por defecto */
+    padding-left: 0; /* Elimina el padding izquierdo por defecto de la lista */
+    margin: 20px 0; /* Margen para las listas (ajustado para que el estilo de la sección final tenga prioridad) */
+}
+
+/* Estilo para el "check" en los ítems de lista */
+ul li::before {
+    content: "✔"; /* Agrega el carácter de "check" antes de cada ítem de lista */
+    color: #3399ff; /* Color azul para el check */
+    margin-right: 8px; /* Espacio entre el check y el texto del ítem */
+}
+
+/* -----------------------------------------------------
+   *** ESTILOS DE LA SECCIÓN FINAL (ESTRATEGIA Y ALCANCE) ***
+   -----------------------------------------------------
+   Estilos específicos para la sección de estrategia y alcance.
+*/
+.estrategia-alcance {
+    padding-top: 20px; /* Relleno superior para separar del último perfil */
+}
+
+.estrategia-texto {
+    text-align: center; /* Centra el párrafo de estrategia */
+    margin-bottom: 20px; /* Margen inferior para separarlo de la lista. */
+}
+
+.lista-estrategia {
+    text-align: center; /* Centra los ítems de la lista de estrategia */
+    margin-bottom: 30px; /* Margen inferior para separarla del título de Alcance. */
+}
+
+.lista-alcance {
+    display: flex; /* Utiliza Flexbox para organizar los ítems de alcance */
+    flex-wrap: wrap; /* Permite que los ítems se envuelvan en varias líneas si no hay espacio */
+    justify-content: center; /* Centra los ítems horizontalmente */
+    gap: 20px; /* Espacio de 20px entre los ítems */
+    list-style: none; /* Quita el estilo de lista por defecto (redundante, pero no hace daño) */
+}
+
+/* -----------------------------------------------------
+   *** RESPONSIVIDAD PARA PANTALLAS PEQUEÑAS (MÓVIL) CON FLEXBOX ***
+   -----------------------------------------------------
+   Estos estilos se aplican cuando el ancho de la ventana es de 768px o menos.
+*/
+@media (max-width: 768px) {
+    .contenedor {
+        margin: 20px auto; /* Reduce el margen exterior de la tarjeta en móvil */
+        padding: 20px; /* Reduce el padding de la tarjeta en móvil */
+    }
+
+    .usuario {
+        flex-direction: column; /* ¡Apila los ítems verticalmente en pantallas pequeñas! */
+        align-items: center; /* Centra los ítems horizontalmente en la columna. */
+        gap: 20px; /* Mantiene el espacio entre ítems. */
+    }
+
+    .usuario.invertido {
+        flex-direction: column; /* También apila los ítems verticalmente, anulando 'row-reverse' en móvil. */
+    }
+
+    .info-izquierda,
+    .info-derecha {
+        flex: none; /* Desactiva el crecimiento/encogimiento de los ítems en móvil. */
+        width: 100%; /* Permite que ambos ítems ocupen todo el ancho disponible. */
+        min-width: unset; /* Reinicia el min-width para que no restrinja el ancho. */
+        text-align: center; /* Centra el contenido de ambas columnas en móvil. */
+    }
+
+    .info-derecha p {
+        text-align: center; /* Asegura que el texto dentro de info-derecha también se centre. */
+    }
+}
