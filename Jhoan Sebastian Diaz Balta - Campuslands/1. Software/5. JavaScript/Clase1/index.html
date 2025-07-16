@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Hola JavaScript</h1>
+    <p>Haz click en el botón para saludar</p>
+    <button onclick="mostrarMensaje()">Saludar</button>
+
+    <div id="mensaje"></div>
+
+    <!-- Forma no recomendada
+    <script>
+        function mostrarMensaje(){
+            const nombre = prompt("¿Como te Llamas?: "); // el prompt es el famoso imput
+            const mensaje = "Hola "+nombre+", Bienvenido a JavaScript";
+            
+            // .textContent para que se muestre el contenido.
+            document.getElementById("mensaje").textContent = mensaje;
+            console.log("Saludo Mostrado: ",mensaje);
+
+        }
+    </script> -->
+
+    <script src="script.js"></script>
+</body>
+
+</html>
