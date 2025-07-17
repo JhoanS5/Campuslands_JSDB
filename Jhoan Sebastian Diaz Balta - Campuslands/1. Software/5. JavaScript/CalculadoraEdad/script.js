@@ -24,6 +24,6 @@ function calcularEdad(){
         document.getElementById("resultado").textContent = "Edad fuera de rango.";
     }else{
         // podemos hacer un format con esto: ¨¨ 
-        document.getElementById("resultado").textContent = `TIenes aproximadamente ${edad} años de edad`;
+        document.getElementById("resultado").textContent = `Tienes aproximadamente ${edad} años de edad`;
     }
 }

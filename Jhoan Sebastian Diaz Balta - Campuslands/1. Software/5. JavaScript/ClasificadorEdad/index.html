@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>CLASIFICADOR DE EDAD</h1>
+        <input type="text" placeholder="Tu nombre" id="nombre">
+        <input type="number" step="1" placeholder="Tu edad" min="0" max="120" id="edad" required>
+        <button onclick="clasificarEdad()">Evaluar</button> 
+
+        <div id="resultado"></div>
+    </div>
+
+    <script src="./main.js"></script>
+</body>
+
+</html>
