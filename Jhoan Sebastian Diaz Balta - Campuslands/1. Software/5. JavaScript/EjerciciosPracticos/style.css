@@ -4,17 +4,19 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-}
+    min-height: 100vh;
+    overflow: auto;
 
-/* Calcular */
+}
 
 .contenedor-principal{
-    flex-wrap: wrap;
+    display: block;
 }
 
+/* Calculadora Impuestos */
+
 .contenedor-calculadora-impuestos{
-    flex: 1;
+    display: block;
     background-color: white;
     padding: 20px 30px;
     border-radius: 15px;
@@ -29,3 +31,103 @@ body{
     width: 80%;
     border-radius: 10px;
 }
+
+/* Contador Numeros */
+
+.contenedor-numeros-pares-impares{
+    margin-top: 50px;
+    background-color: white;
+    padding: 20px 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.contenedor-numeros-pares-impares input, button{
+    margin: 10px;
+    padding: 10px;
+    font-size: 1em;
+    width: 80%;
+    border-radius: 10px;
+}
+
+/* Validador de Contraseñas */
+
+.contenedor-passwords-fuertes{
+    margin-top: 50px;
+    background-color: white;
+    padding: 20px 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.contenedor-passwords-fuertes input, button{
+    margin: 10px;
+    padding: 10px;
+    font-size: 1em;
+    width: 80%;
+    border-radius: 10px;
+}
+
+/*
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f4f4;
+    display: flex; // Mantener flexbox si quieres centrar horizontalmente
+    justify-content: center; // Centrar horizontalmente
+    // align-items: center;  <-- ELIMINA ESTO o cámbialo si quieres que el contenido empiece desde arriba
+    min-height: 100vh; // Usa min-height para que el body pueda crecer si el contenido es más largo
+    overflow-y: auto; // Permite scroll vertical si el contenido excede la altura
+    // margin: 0; padding: 0; <-- Asegúrate de que no haya márgenes/rellenos inesperados en el body
+}
+*/
+
+/*
+.contenedor-principal {
+    display: flex; // Usa flexbox para organizar las tarjetas
+    flex-direction: column; // Apila las tarjetas verticalmente
+    align-items: center; // Centra las tarjetas individualmente dentro de .contenedor-principal si es más ancho
+    padding: 20px; // Añade un poco de padding para que no estén pegadas a los bordes
+    box-sizing: border-box; // Incluye padding en el ancho/alto total
+    width: 100%; // Ocupa el ancho completo disponible
+    max-width: 600px; // Opcional: Define un ancho máximo para el contenedor principal
+}
+*/
+
+/* Calculadora Impuestos, Contador Numeros, Validador de Contraseñas */
+/* Puedes combinar estos estilos si son muy similares para mantener DRY (Don't Repeat Yourself) */
+/*
+.contenedor-calculadora-impuestos,
+.contenedor-numeros-pares-impares,
+.contenedor-passwords-fuertes {
+    background-color: white;
+    padding: 20px 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    width: 90%; // Ajusta el ancho de cada tarjeta
+    max-width: 400px; // Opcional: Ancho máximo para las tarjetas individuales
+    margin-bottom: 30px; // Espacio entre las tarjetas
+    box-sizing: border-box; // Asegura que padding no aumente el ancho total
+}
+*/
+
+/* El último contenedor no necesita margin-bottom si no hay nada debajo */
+/*
+.contenedor-passwords-fuertes {
+    margin-bottom: 0;
+}
+*/
+
+/*
+.contenedor-calculadora-impuestos input, button,
+.contenedor-numeros-pares-impares input, button,
+.contenedor-passwords-fuertes input, button {
+    margin: 10px;
+    padding: 10px;
+    font-size: 1em;
+    width: calc(100% - 20px); // Ajusta el ancho al 100% del padre menos el margin total
+    border-radius: 10px;
+}
+*/
