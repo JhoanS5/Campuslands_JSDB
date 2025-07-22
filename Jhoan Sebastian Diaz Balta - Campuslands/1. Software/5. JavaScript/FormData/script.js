@@ -25,11 +25,16 @@ form.addEventListener('submit', e => {
     return;
   }
 
+  // Creo el objeto contacto con un ID único
+  const contacto = { 
+    id: idCounter++,
+    nombre,
+    email 
+  };
 
-  const contacto = { nombre, email };
   contactos.push(contacto);
   emailsSet.add(email);
-  contactosMap.set(idCounter++, contacto);
+  contactosMap.set(contacto.id, contacto); // La clave del map se vuelve la ID del contacto.
 
 
   form.reset();
@@ -44,14 +49,57 @@ buscarInput.addEventListener('input', () => {
 });
 
 
-function mostrarContactos(lista) {
-  lista.sort((a, b) => a.nombre.localeCompare(b.nombre));
+function mostrarContactos(listaContactos) {
+  listaContactos.sort((a, b) => a.nombre.localeCompare(b.nombre));
 
 
-  resultados.innerHTML = lista.length
-    ? lista.map(c => `<p><strong>${c.nombre}</strong> – ${c.email}</p>`).join("")
+  resultados.innerHTML = listaContactos.length
+    ? listaContactos.map(c => `
+      <p>
+        <strong>${c.nombre}</strong> – ${c.email}
+        <button class="btn-eliminar" data-id="${c.id}">Eliminar</button>
+      </p>`).join("")
     : "<p>No hay contactos para mostrar.</p>";
+  
+  // Adjunto los event listeners a los nuevos botones de eliminar
+  document.querySelectorAll('.btn-eliminar').forEach(button =>{
+    button.addEventListener('click', (e) =>{
+      // e.target es directamente ese botón clickeado
+      // e.target.dataset es el objeto { id: "5" }
+      // e.target.dataset.id es la cadena "5"
+      const id = parseInt(e.target.dataset.id); // Convierte "5" a 5 (número)
+      eliminarContacto(id);
+    });
+  });
 }
+
+
+function eliminarContacto(idEliminar){
+  // Obtengo el contacto completo del Map para acceder a su email
+  const contactoAEliminar = contactosMap.get(idEliminar);
+
+  if (contactoAEliminar){
+    // Creo un nuevo arreglo excluyendo el contacto con el ID especificado
+    contactos = contactos.filter(c => c.id !== idEliminar);
+
+    emailsSet.delete(contactoAEliminar.email);
+
+    contactosMap.delete(idEliminar);
+
+    mostrarContactos(contactos);
+  }
+}
+
+
+
+/*
+Para las funcionalidades de agregar y buscar: No necesitas el id. 
+Podrías simplemente agregar { nombre, email } al array contactos y aún así mostrar y buscar.
+
+Para la funcionalidad de eliminar (o editar/actualizar): El id es crucial. Te permite identificar de forma única cada registro y manipularlo (borrarlo, modificarlo) sin ambigüedad. 
+Además, es lo que usas para el atributo data-id en el botón de eliminar, 
+que le dice a JavaScript qué contacto se está intentando borrar.
+*/
 
 
 /*
