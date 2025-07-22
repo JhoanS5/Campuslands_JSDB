@@ -1,0 +1,36 @@
+body {
+  font-family: Arial, sans-serif;
+  max-width: 600px;
+  margin: auto;
+  padding: 2rem;
+  background-color: #f4f4f4;
+}
+
+
+form, #buscarInput {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+
+input {
+  padding: 0.5rem;
+  flex: 1;
+}
+
+
+button {
+  padding: 0.5rem 1rem;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+
+#resultados {
+  background: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
