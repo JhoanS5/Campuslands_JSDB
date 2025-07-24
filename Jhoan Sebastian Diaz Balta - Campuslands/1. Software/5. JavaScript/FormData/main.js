@@ -56,3 +56,80 @@ function mostrarContactos(lista) {
     ? lista.map(c => `<p><strong>${c.nombre}</strong> – ${c.email}</p>`).join("") // Crea un párrafo HTML para cada contacto y los une en una sola cadena.
     : "<p>No hay contactos para mostrar.</p>"; // Si la lista está vacía, muestra un mensaje.
 }
+
+/*
+Para las funcionalidades de agregar y buscar: No necesitas el id. 
+Podrías simplemente agregar { nombre, email } al array contactos y aún así mostrar y buscar.
+
+Para la funcionalidad de eliminar (o editar/actualizar): El id es crucial. Te permite identificar de forma única cada registro y manipularlo (borrarlo, modificarlo) sin ambigüedad. 
+Además, es lo que usas para el atributo data-id en el botón de eliminar, 
+que le dice a JavaScript qué contacto se está intentando borrar.
+*/
+
+
+/*
+Posible Solucion:
+eliminarPersonaBtn.addEventListener('click', () => {
+  const consulta = buscarInput.value.toLowerCase().trim();
+  if (!consulta) {
+    alert("Por favor, introduce el nombre o email del contacto que deseas eliminar.");
+    return;
+  }
+
+  // Encontrar contactos a eliminar (puede ser por nombre o email, dependiendo de lo que se busque)
+  const contactosParaEliminar = contactos.filter(c => 
+    c.nombre.toLowerCase().includes(consulta) || c.email.toLowerCase().includes(consulta)
+  );
+
+  if (contactosParaEliminar.length === 0) {
+    alert("No se encontraron contactos que coincidan con la búsqueda para eliminar.");
+    return;
+  }
+
+  // Confirmar la eliminación si hay varios contactos
+  if (contactosParaEliminar.length > 1) {
+    const confirmacion = confirm(`Se encontraron ${contactosParaEliminar.length} contactos. ¿Estás seguro de que quieres eliminarlos todos?`);
+    if (!confirmacion) {
+      return;
+    }
+  }
+
+  // Realizar la eliminación
+  eliminarContactos(contactosParaEliminar);
+});
+
+function eliminarContactos(listaAEliminar) {
+  listaAEliminar.forEach(contactoAEliminar => {
+    // Eliminar del array contactos
+    contactos = contactos.filter(c => c.email !== contactoAEliminar.email);
+    // Eliminar del Set emailsSet
+    emailsSet.delete(contactoAEliminar.email);
+    // Eliminar del Map contactosMap
+    contactosMap.delete(contactoAEliminar.email);
+  });
+
+  // Limpiar el input de búsqueda después de eliminar
+  buscarInput.value = ''; 
+  // Mostrar la lista actualizada de contactos
+  mostrarContactos(contactos);
+}
+
+function mostrarContactos(lista) {
+  lista.sort((a, b) => a.nombre.localeCompare(b.nombre));
+
+  resultados.innerHTML = lista.length
+    ? lista.map(c => `<p><strong>${c.nombre}</strong> – ${c.email}</p>`).join("")
+    : "<p>No hay contactos para mostrar.</p>";
+
+  // Añadir event listeners a los nuevos botones de eliminar individuales
+  document.querySelectorAll('.eliminar-individual').forEach(button => {
+    button.addEventListener('click', (e) => {
+      const emailAEliminar = e.target.dataset.email;
+      const contactoAEliminar = contactosMap.get(emailAEliminar);
+      if (contactoAEliminar) {
+        eliminarContactos([contactoAEliminar]); // Pasamos un array con el contacto a eliminar
+      }
+    });
+  });
+}
+*/
