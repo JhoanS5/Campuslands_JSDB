@@ -9,11 +9,11 @@ btnAgregar.addEventListener('click', agregarTarea);
 
 // Función para actualizar los contadores
 function actualizarContadores() {
-    const todasLasTareas = document.querySelectorAll('.tarea'); 
-    const tareasCompletadas = document.querySelectorAll('.tarea[data-completado="true"]'); 
+    const todasLasTareas = document.querySelectorAll('.tarea'); // Selecciona todos los <li> con clase 'tarea'
+    const tareasCompletadas = document.querySelectorAll('.tarea[data-completado="true"]'); // Selecciona los <li> que están completados
 
-    totalSpan.textContent = todasLasTareas.length; 
-    completadasSpan.textContent = tareasCompletadas.length; 
+    totalSpan.textContent = todasLasTareas.length; // Actualiza el total
+    completadasSpan.textContent = tareasCompletadas.length; // Actualiza las completadas
 }
 
 function agregarTarea(){
@@ -41,7 +41,7 @@ function agregarTarea(){
     btnCompletar.classList.add('btn', 'btn-completar');
     btnCompletar.addEventListener('click', ()=>{
         toggleCompletada(li);
-        actualizarContadores(); 
+        actualizarContadores(); // Llamar a actualizar contadores después de cambiar el estado
     });
 
 
@@ -50,7 +50,7 @@ function agregarTarea(){
     btnEliminar.classList.add('btn', 'btn-eliminar');
     btnEliminar.addEventListener('click', ()=>{
         eliminarTarea(li);
-        actualizarContadores(); 
+        actualizarContadores(); // Llamar a actualizar contadores después de eliminar
     });
 
     divBotones.append(btnCompletar, btnEliminar);
@@ -60,7 +60,7 @@ function agregarTarea(){
 
     input.value = '';
 
-    actualizarContadores(); 
+    actualizarContadores(); // Llamar a actualizar contadores después de agregar una tarea
 }
 
 function tareaExiste(texto){
@@ -78,12 +78,14 @@ function toggleCompletada(tarea){
         tarea.classList.add('completada');
         tarea.setAttribute('data-completado','true');
     }
-    
+    // No se llama aquí directamente a actualizarContadores porque ya se llama en el event listener del botón completar.
+    // Si se llamara aquí, se ejecutaría dos veces por cada click, lo cual no es eficiente.
 }
 
 function eliminarTarea(tarea){
     tarea.remove();
-   
+    // No se llama aquí directamente a actualizarContadores porque ya se llama en el event listener del botón eliminar.
+    // Si se llamara aquí, se ejecutaría dos veces por cada click, lo cual no es eficiente.
 }
 
 // Inicializar contadores cuando la página carga
