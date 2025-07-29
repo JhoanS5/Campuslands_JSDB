@@ -7,6 +7,14 @@ const completadasSpan = document.getElementById('completadas');
 
 btnAgregar.addEventListener('click', agregarTarea);
 
+// Función para actualizar los contadores
+function actualizarContadores() {
+    const todasLasTareas = document.querySelectorAll('.tarea'); // Selecciona todos los <li> con clase 'tarea'
+    const tareasCompletadas = document.querySelectorAll('.tarea[data-completado="true"]'); // Selecciona los <li> que están completados
+
+    totalSpan.textContent = todasLasTareas.length; // Actualiza el total
+    completadasSpan.textContent = tareasCompletadas.length; // Actualiza las completadas
+}
 
 function agregarTarea(){
     const texto = input.value.trim();
@@ -32,7 +40,8 @@ function agregarTarea(){
     btnCompletar.textContent = '✅';
     btnCompletar.classList.add('btn', 'btn-completar');
     btnCompletar.addEventListener('click', ()=>{
-        toggleCompletada(li)
+        toggleCompletada(li);
+        actualizarContadores(); // Llamar a actualizar contadores después de cambiar el estado
     });
 
 
@@ -40,24 +49,23 @@ function agregarTarea(){
     btnEliminar.textContent = '🗑️';
     btnEliminar.classList.add('btn', 'btn-eliminar');
     btnEliminar.addEventListener('click', ()=>{
-        eliminarTarea(li)
+        eliminarTarea(li);
+        actualizarContadores(); // Llamar a actualizar contadores después de eliminar
     });
 
     divBotones.append(btnCompletar, btnEliminar);
-    li.append(span, divBotones); // Al ser solo uno es append.
+    li.append(span, divBotones);
 
-    lista.appendChild(li); // Como pueden ser varias tareas se usan appenchild.
+    lista.appendChild(li);
 
     input.value = '';
 
-
+    actualizarContadores(); // Llamar a actualizar contadores después de agregar una tarea
 }
 
 function tareaExiste(texto){
-    const tareas = document.querySelectorAll('.tarea span') // Selector clase o tipo.
+    const tareas = document.querySelectorAll('.tarea span')
     return Array.from(tareas).some(el => el.textContent.toLocaleLowerCase() === texto.toLocaleLowerCase());
-
-    // .some dice que si al menos un elemento de esa array cumple con la condicion, se devuelve dicho elemento.
 }
 
 function toggleCompletada(tarea){
@@ -70,10 +78,15 @@ function toggleCompletada(tarea){
         tarea.classList.add('completada');
         tarea.setAttribute('data-completado','true');
     }
+    // No se llama aquí directamente a actualizarContadores porque ya se llama en el event listener del botón completar.
+    // Si se llamara aquí, se ejecutaría dos veces por cada click, lo cual no es eficiente.
 }
 
 function eliminarTarea(tarea){
     tarea.remove();
+    // No se llama aquí directamente a actualizarContadores porque ya se llama en el event listener del botón eliminar.
+    // Si se llamara aquí, se ejecutaría dos veces por cada click, lo cual no es eficiente.
 }
 
-//Trabajo del review los contandores.
+// Inicializar contadores cuando la página carga
+document.addEventListener('DOMContentLoaded', actualizarContadores);
