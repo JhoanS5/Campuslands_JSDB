@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Duarte - Registro y Derechos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/cards-dinamicas.css">
+</head>
+
+<body>
+    <div id="app-contenedor">
+        <section id="seccion-autenticacion">
+            <div class="auth-wrapper">
+                <header>
+                    <div class="logo-contenedor">
+                        <img src="./assets/images/Logo_Medical_Duarte.png" alt="Logo de la Clinica Medical Duarte" class="logo">
+                        <img src="./assets/images/Logo_Fundacion_Medical_Duarte.png" alt="Logo de la Fundación" class="logo">
+                    </div>
+                </header>
+
+                <div class="form-column">
+                    <div id="registro-contenedor" class="form-contenedor">
+                        <h2>Crea tu cuenta</h2>
+                        <form id="registro-form">
+                            <label for="nombre">Nombre completo:</label>
+                            <input type="text" id="nombre" name="nombre" required>
+
+                            <label for="tipo-documento">Tipo de documento:</label>
+                            <select name="tipo_documento" id="tipo-documento" required>
+                                <option value="">-- Seleccione --</option>
+                                <option value="CC">Cédula de Ciudadania</option>
+                                <option value="TI">Tarjeta de Identidad</option>
+                                <option value="CE">Cédula de Extranjeria</option>
+                            </select>
+
+                            <label for="num-documento">Número de documento:</label>
+                            <input type="number" id="num-documento" name="numero_documento" min="0" required>
+
+                            <label for="habitaciones">Número de habitaciones:</label>
+                            <input type="number" id="habitaciones" name="habitaciones" min="1" required>
+
+                            <label for="servicios">Servicios de interés</label>
+                            <input type="text" id="servicios" name="servicios" required>
+
+                            <button type="submit">Registrarme</button>
+                            <p id="mensaje-registro" class="mensaje"></p>
+                        </form>
+                        <a href="#" id="mostrar-login">¿Ya tienes cuenta? Iniciar Sesión</a>
+                    </div>
+
+                    <div id="login-contenedor" class="form-contenedor" style="display: none;">
+                        <h2>Iniciar Sesión</h2>
+                        <form id="login-form">
+                            <label for="login-num-documento">Número de documento:</label>
+                            <input type="number" id="login-num-documento" name="numero_documento" min="0" required>
+
+                            <label for="login-password">Contraseña:</label>
+                            <input type="password" id="login-password" name="password" required>
+
+                            <button type="submit">Entrar</button>
+                            <p id="login-mensaje" class="mensaje"></p>
+                        </form>
+                        <a href="#" id="mostrar-registro">¿No tienes cuenta? Regístrate</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <main id="main-panel" style="display: none;">
+            <header class="header-main">
+                <div class="logo-contenedor">
+                    <img src="./assets/images/Logo_Medical_Duarte.png" alt="Logo de la Clínica Medical Duarte" class="logo">
+                </div>
+
+                <div class="usuario-info">
+                    <h1>Hola, <span id="usuario-nombre-display"></span></h1>
+                    <p>Conoce tus Derechos y Deberes en la Clínica Medical Duarte.</p>
+                </div>
+                <button id="logout-btn">Cerrar Sesión</button>
+            </header>
+
+            <div class="progreso-bar-contenedor">
+                <div class="progreso-bar" id="progreso-bar"></div>
+                <span id="progreso-texto">0 / 20</span>
+            </div>
+
+            <div id="insignia-contenedor" style="display: none;">
+                <h3>¡Felicidades! Has ganado una insignia.</h3>
+                <p>Has leído todos los derechos y deberes.</p>
+            </div>
+
+            <section id="derechos-seccion">
+                <h2>Derechos del Paciente</h2>
+                <div class="cards-grid" id="derechosContenedor"></div>
+            </section>
+
+            <section id="deberes-seccion">
+                <h2>Deberes del Paciente</h2>
+                <div class="cards-grid" id="deberesContenedor"></div>
+            </section>
+        </main>
+    </div>
+
+    <script src="./js/data.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
