@@ -1,0 +1,147 @@
+/* Importar una fuente de Google Fonts para un mejor aspecto */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Estilos generales del cuerpo de la página */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f2f5; /* Un gris claro para el fondo */
+    display: flex;
+    justify-content: center; /* Centrar la calculadora horizontalmente */
+    align-items: center; /* Centrar la calculadora verticalmente */
+    min-height: 100vh; /* Asegurar que el cuerpo ocupe toda la altura de la ventana */
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box; /* Incluir padding y border en el tamaño total */
+}
+
+/* Contenedor principal de la calculadora */
+.calculadora-contenedor {
+    background-color: #ffffff; /* Fondo blanco para la caja principal */
+    border-radius: 16px; /* Bordes redondeados */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    padding: 30px;
+    width: 100%;
+    max-width: 400px; /* Ancho máximo para que no se vea demasiado grande en pantallas amplias */
+    text-align: center; /* Centrar el texto dentro del contenedor */
+}
+
+/* Estilo para el título */
+.calculadora h1 {
+    color: #333; /* Color de texto oscuro */
+    margin-bottom: 25px;
+    font-size: 2.2em;
+}
+
+/* Estilo para los labels (etiquetas) */
+label {
+    display: block; /* Cada label en su propia línea */
+    text-align: left; /* Alinear el texto de los labels a la izquierda */
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: 700; /* Negrita */
+    color: #555;
+}
+
+/* Estilo para los campos de entrada de número */
+input[type="number"] {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd; /* Borde gris claro */
+    border-radius: 8px; /* Bordes redondeados */
+    font-size: 1em;
+    box-sizing: border-box; /* Incluir padding y border en el tamaño total */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transición suave al enfocar */
+}
+
+input[type="number"]:focus {
+    border-color: #007bff; /* Borde azul al enfocar */
+    outline: none; /* Eliminar el contorno por defecto del navegador */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+}
+
+/* Estilo para el campo de operación visual */
+#operacion-visual {
+    font-size: 3em; /* Tamaño grande para el símbolo */
+    color: #007bff; /* Color azul */
+    margin: 20px 0;
+    font-weight: bold;
+    height: 40px; /* Mantener la altura para evitar que los elementos salten */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilo para el selector de operación */
+#operacion {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    font-size: 1em;
+    cursor: pointer;
+    margin-bottom: 25px;
+    -webkit-appearance: none; /* Quitar el estilo por defecto de los navegadores webkit */
+    -moz-appearance: none; /* Quitar el estilo por defecto de los navegadores mozilla */
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="%23000"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 12px;
+}
+
+/* ESTILOS PARA EL NUEVO BOTÓN */
+#calcular {
+    width: 100%;
+    padding: 15px;
+    background-color: #007bff; /* Fondo azul */
+    color: #fff; /* Texto blanco */
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease; /* Transición suave */
+    margin-bottom: 25px; /* Espacio debajo del botón */
+}
+
+#calcular:hover {
+    background-color: #0056b3; /* Un azul más oscuro al pasar el cursor */
+}
+
+#calcular:active {
+    background-color: #004085; /* Un azul aún más oscuro al presionar */
+    transform: translateY(1px); /* Un pequeño efecto de "presionar" */
+}
+
+/* Estilo para el contenedor del resultado */
+#resultado {
+    background-color: #e9ecef; /* Fondo gris claro */
+    color: #495057; /* Texto gris oscuro */
+    padding: 20px;
+    border-radius: 8px;
+    font-size: 1em; /* Tamaño de fuente del resultado */
+    font-weight: 700;
+    min-height: 2.5em; /* Altura mínima para que el contenedor no colapse */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Estilos de respuesta para pantallas más pequeñas */
+@media (max-width: 480px) {
+    .calculadora-contenedor {
+        padding: 20px;
+        margin: 10px;
+    }
+
+    #calculadora h1 {
+        font-size: 1.8em;
+    }
+
+    #resultado {
+        font-size: 1.2em;
+    }
+}
