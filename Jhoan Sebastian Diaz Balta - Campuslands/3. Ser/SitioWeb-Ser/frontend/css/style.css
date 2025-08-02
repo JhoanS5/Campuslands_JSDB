@@ -21,25 +21,20 @@ body {
     font-family: 'Lato', sans-serif;
     color: var(--color-texto);
     line-height: 1.6;
-    background-color: #fff;
+    background-color: #f0f2f5; /* Fondo general sutil */
     min-height: 100vh;
     overflow-x: hidden;
     position: relative;
-}
-
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    /* Añadido para el fondo de imagen en el body */
     background-image: url('../assets/images/Fondo-Hospital.jpg');
     background-size: cover;
     background-position: center;
-    filter: blur(5px) brightness(80%);
-    z-index: -1;
+    background-attachment: fixed; /* Para que la imagen de fondo no se mueva con el scroll */
+    filter: brightness(90%); /* Ligeramente más oscuro para que el contenido resalte */
 }
+
+/* Eliminado: body.overlay-active ya no es necesario */
+
 
 #app-contenedor {
     display: flex;
@@ -53,23 +48,43 @@ body::before {
     flex-grow: 1;
     display: flex;
     justify-content: center;
-    align-items: center;
-    padding: 2rem;
+    align-items: center; /* Centra el contenido verticalmente */
+    padding: 2rem; /* Espacio alrededor de la carta */
+    position: relative; /* Necesario para que el pseudo-elemento se posicione correctamente */
+    z-index: 1; /* Asegura que el contenido esté encima del fondo */
+    overflow: hidden; /* Para que el fondo no se salga si es más grande */
 }
+
+/* Pseudo-elemento para el fondo de imagen borrosa solo en la sección de autenticación */
+#seccion-autenticacion::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/images/Fondo-Hospital.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: blur(5px) brightness(80%);
+    z-index: -1; /* Envía el pseudo-elemento al fondo */
+}
+
 
 .auth-wrapper {
     display: flex;
     width: 100%;
-    max-width: 1200px;
-    background-color: #fff;
+    max-width: 1200px; /* Volvemos al ancho original */
+    margin: auto; /* Centra la carta vertical y horizontalmente */
+    background-color: #fff; /* Fondo blanco para el contenedor de formularios */
     border-radius: 0.5rem;
     box-shadow: 0 0.25rem 0.5rem var(--color-sombra);
-    overflow: hidden;
 }
 
+/* Header para la sección de autenticación */
 header {
     flex: 1;
-    padding: 2rem;
+    padding: 1.5rem; /* Padding reducido para hacerlo menos alto */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -82,12 +97,19 @@ header {
     flex: 1.5;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start; /* Alinea el contenido al inicio (arriba) */
     padding: 2rem;
     background-color: #fff;
+    max-height: 90vh; /* Limita la altura máxima de la columna del formulario */
+    overflow-y: auto; /* Permite el scroll vertical si el contenido excede la altura */
 }
 
-header h1 {
+.form-contenedor {
+    padding-top: 2rem; /* Añadir padding superior para separar el título del borde */
+    padding-bottom: 2rem; /* Añadir padding inferior */
+}
+
+header h2 {
     font-size: 2.5rem;
     color: var(--color-primario);
 }
@@ -184,78 +206,362 @@ button:hover {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    background-image: url('../assets/images/Fondo-Cielo.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: -1; 
 }
 
+/* Estilos para el encabezado del panel principal */
 .header-main {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: space-between; /* Distribuye los elementos a los extremos */
+    align-items: center; /* Centra los elementos verticalmente */
     padding: 1rem 2rem;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra para dar profundidad */
 }
 
+/* Contenedor para agrupar el logo y la info del usuario a la izquierda */
+.header-left-content {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem; /* Espacio entre el logo y el texto de bienvenida */
+}
+
+/* Estilos para el logo dentro del header principal */
 .header-main .logo-contenedor {
-    gap: 0.5rem;
+    display: flex; /* Hacemos este contenedor flex */
+    align-items: center; /* Centramos verticalmente su contenido (la imagen) */
+    justify-content: center; /* Centramos horizontalmente su contenido (la imagen) */
+    gap: 0.5rem; 
+    margin-right: 1.5rem; /* Espacio entre el logo y la info del usuario */
 }
 
-.header-main h1 {
-    font-size: 1.5rem;
-    margin: 0;
+/* Estilos para la imagen del logo dentro de .header-main */
+.header-main .logo-contenedor .logo {
+    max-height: 80px; /* Aumentamos el tamaño del logo */
+    width: auto;
 }
 
-.header-main p {
+/* Estilos para la información del usuario en el header principal */
+.usuario-info {
+    display: flex;
+    /* Cambiado a flex para 3 columnas */
+    flex-direction: row; /* Elementos en fila */
+    justify-content: center; /* Centra los elementos horizontalmente */
+    align-items: center; /* Centra los elementos verticalmente */
+    gap: 2rem; /* Espacio entre las columnas */
+    text-align: center; /* Asegura que el texto también esté centrado */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+}
+
+/* Nuevo estilo para el contenedor del nombre y la descripción */
+.usuario-nombre-y-descripcion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.usuario-info h1 {
+    font-size: 1.8rem; /* Un poco más grande para el nombre */
     margin: 0;
-    font-size: 0.9rem;
+    color: #333;
+}
+
+.usuario-info p {
+    margin: 0;
+    font-size: 1rem; /* Un poco más grande para el subtítulo */
     color: #6c757d;
 }
 
-#logout-btn {
-    background-color: #dc3545;
+/* Estilos para el botón de cerrar sesión dentro de usuario-info */
+.usuario-info #logout-btn { /* Especificamos la ruta para que no afecte otros botones */
+    background-color: var(--color-primario); /* Color azul primario */
     color: #fff;
-    padding: 0.75rem 1.5rem;
+    /* Reducimos el padding para hacer el botón más pequeño */
+    padding: 0.5rem 1rem; 
+    font-size: 0.9rem; /* Reducimos el tamaño de la fuente */
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 0; /* Eliminar margen superior, ya que el gap lo manejará */
+}
+
+.usuario-info #logout-btn:hover {
+    background-color: #0056b3; /* Un azul más oscuro al pasar el mouse */
+    transform: translateY(-2px);
+}
+
+/* Estilos para la nueva insignia "Usuario Ejemplar" */
+#usuario-insignia-inline {
+    display: flex;
+    flex-direction: column; /* Apila el icono y el texto */
+    align-items: center; /* Centra el contenido */
+    gap: 0.2rem; /* Espacio entre el icono y el texto */
+    background-color: #ffeb3b; /* Color de fondo para la insignia (amarillo dorado) */
+    color: #333; /* Color del texto */
+    padding: 0.3rem 0.8rem;
+    border-radius: 1rem; /* Bordes redondeados */
     font-size: 0.9rem;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.5s ease-in-out;
+    text-align: center; /* Centra el texto de la insignia */
 }
 
-#logout-btn:hover {
-    background-color: #c82333;
+.insignia-icono {
+    font-size: 1.2rem; /* Tamaño del icono */
 }
 
+.insignia-texto {
+    white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
+}
+
+.hidden-insignia {
+    opacity: 0;
+    visibility: hidden;
+    height: 0; /* Oculta el elemento por completo cuando no es visible */
+    overflow: hidden;
+    margin-top: 0; /* Elimina el margen cuando está oculto */
+}
+
+
+/* Estilos para las secciones de Derechos y Deberes */
 main section {
     padding: 2rem;
-    text-align: center;
+    display: flex; /* Convertido a flexbox */
+    flex-direction: column; /* Apila los elementos verticalmente */
+    align-items: flex-start; /* Alinea los elementos a la izquierda */
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco ligeramente transparente */
+    border-radius: 0.5rem; /* Bordes redondeados */
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.05); /* Sombra sutil */
+    margin: 2rem auto; /* Centra la sección y le da margen */
+    width: 90%; /* Ancho flexible */
+    max-width: 1400px; /* Ancho máximo aumentado */
+    position: relative; /* Necesario para posicionar la barra de progreso */
 }
 
 main section h2 {
     font-family: 'Montserrat', sans-serif;
     color: var(--color-primario);
-    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem; /* Reducido el margen inferior para acercarlo a la barra */
+    text-align: center; /* Centrado para el título "Derechos del Paciente" */
+    width: 100%; /* Ocupa todo el ancho disponible */
 }
 
+/* --- Estilos para la cuadrícula de tarjetas (vertical y expandible horizontalmente) --- */
 .cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(17.5rem, 1fr));
-    gap: 2rem;
-    padding: 0 2rem;
+    display: grid; /* Cambiado a CSS Grid */
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas de igual tamaño */
+    gap: 1.5rem; /* Espacio entre las tarjetas */
+    width: 100%; /* Asegura que ocupe el 100% del ancho disponible de su padre */
+    /* Eliminado: justify-content y align-items de aquí, se controlan a nivel de item si es necesario */
 }
+
+/* --- Estilos para las tarjetas individuales (ahora con icono y efecto de apertura) --- */
+.card-dinamica {
+    /* Estilo de "ficha médica" o "expediente sellado" */
+    background: linear-gradient(135deg, #f0f9ff, #e0f2ff); /* Degradado suave azul claro */
+    border: 1px solid #cceeff; /* Borde azul muy claro */
+    border-radius: 0.75rem; /* Bordes ligeramente más suaves */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Sombra más limpia y definida */
+    padding: 0; /* Sin padding inicial para que el pseudo-elemento ocupe el espacio */
+    cursor: pointer;
+    flex-shrink: 0;
+    flex-grow: 0;
+    min-width: 250px; /* Ancho mínimo para las tarjetas */
+    height: 250px; /* Altura inicial fija para "cuadrado" */
+    text-align: left;
+    overflow: hidden; /* Oculta el contenido que excede el tamaño inicial */
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Transición más suave */
+    position: relative; /* Necesario para el pseudo-elemento del icono */
+    transform: scale(1); /* Para el efecto de hover */
+    /* Eliminado: justify-self, ya que las celdas de grid se llenarán automáticamente */
+
+    /* Centrado del icono inicial */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Icono central de la tarjeta (visible inicialmente) */
+.card-dinamica::before {
+    content: '➕'; /* Emoji de cruz médica */
+    font-size: 3.5rem; /* Tamaño grande para el icono */
+    color: var(--color-primario); /* Color del icono */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centrado absoluto */
+    opacity: 1; /* Visible inicialmente */
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Transición más suave */
+    z-index: 2; /* Asegura que el icono esté por encima del título oculto */
+}
+
+/* Nuevo wrapper para el contenido de la tarjeta, para manejar las columnas */
+.card-content-wrapper {
+    display: flex;
+    width: 100%;
+    height: 100%; /* Ocupa todo el espacio de la tarjeta */
+    opacity: 0; /* Oculto inicialmente */
+    transition: opacity 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Transición más suave */
+    padding: 1.5rem; /* Padding general para el contenido de la tarjeta */
+    box-sizing: border-box; /* Incluye padding en el ancho/alto */
+    gap: 1.5rem; /* Espacio entre las columnas */
+}
+
+.card-title-column {
+    flex: 1; /* Ocupa 1/3 del espacio */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centrado vertical */
+    align-items: flex-start; /* Alineación a la izquierda */
+    box-sizing: border-box;
+}
+
+.card-description-column { /* Nueva columna para la descripción */
+    flex: 1; /* Ocupa 1/3 del espacio */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centrado vertical */
+    align-items: flex-start; /* Alineación a la izquierda */
+    box-sizing: border-box;
+}
+
+.card-example-column { /* Nueva columna para el ejemplo */
+    flex: 1; /* Ocupa 1/3 del espacio */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centrado vertical */
+    align-items: flex-start; /* Alineación a la izquierda */
+    box-sizing: border-box;
+}
+
+.card-dinamica h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--color-primario);
+    font-size: 1.2rem;
+    line-height: 1.3;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    text-align: left; /* Alinea el texto del título a la izquierda */
+    width: 100%;
+    opacity: 1; /* Siempre visible dentro de la columna */
+    position: static; /* Vuelve a su posición normal en el flujo */
+    transform: none; /* Elimina la transformación de centrado absoluto */
+    margin-bottom: 0.5rem; /* Añadido margen inferior para separar el título de la descripción */
+    padding: 0; /* Eliminar padding específico del h3 */
+}
+
+.card-dinamica p {
+    font-size: 0.95rem;
+    color: var(--color-texto);
+    margin-bottom: 0.5rem; /* Añadido margen inferior para separar los párrafos */
+    line-height: 1.4;
+    display: block; /* Siempre visible dentro de la columna */
+    opacity: 1; /* Siempre visible dentro de la columna */
+    padding: 0; /* Eliminar padding específico del p */
+}
+
+.card-dinamica p:last-child {
+    margin-bottom: 0;
+}
+
+/* Efecto al pasar el ratón sobre la tarjeta */
+.card-dinamica:hover {
+    transform: translateY(-5px) scale(1.02); /* Ligeramente hacia arriba y más grande */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 0 0 5px rgba(0, 123, 255, 0.3); /* Sombra más pronunciada y resplandor azul */
+}
+
+
+/* Estado expandido de la tarjeta */
+.card-dinamica.expanded {
+    width: 100%; /* Ocupa el 100% de su celda de grid */
+    max-width: 650px; /* Aumentado para que ocupe más espacio horizontalmente */
+    height: auto; /* La altura se ajusta al contenido */
+    max-height: 90vh; /* Limita la altura para evitar que se salga de la pantalla */
+    overflow: auto; /* Permite scroll si el contenido es muy largo */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); /* Sombra más fuerte al expandir */
+    background-color: #ffffff; /* Fondo blanco al expandir */
+    
+    /* Eliminado: grid-column: 1 / -1; para que no ocupe toda la fila */
+    
+    /* Alineación del contenido al abrirse */
+    align-items: flex-start; /* Alinea los elementos hijos al inicio (izquierda) */
+    padding: 0; /* El padding ahora lo maneja .card-content-wrapper */
+    
+    /* El icono desaparece */
+    &::before {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0); /* Simula que el icono se encoge y desaparece */
+    }
+
+    /* El wrapper de contenido se hace visible */
+    .card-content-wrapper {
+        opacity: 1;
+    }
+}
+
+
+/* Media queries para responsividad de la tarjeta expandida */
+@media (max-width: 768px) {
+    .cards-grid {
+        grid-template-columns: 1fr; /* Una sola columna en pantallas pequeñas */
+    }
+
+    .card-dinamica.expanded {
+        width: 95%; /* Más ancho en pantallas pequeñas */
+        max-width: none; /* Elimina el max-width fijo en móviles */
+        height: 90vh; /* Para que ocupe más espacio vertical en móviles */
+    }
+
+    .card-content-wrapper {
+        flex-direction: column; /* Columnas apiladas en pantallas pequeñas */
+        gap: 0.5rem; /* Menor espacio entre elementos apilados */
+    }
+
+    .card-title-column,
+    .card-description-column,
+    .card-example-column {
+        width: 100%; /* Ocupa todo el ancho disponible */
+        padding: 0; /* Elimina padding horizontal de las columnas */
+    }
+
+    .card-dinamica h3,
+    .card-dinamica p {
+        text-align: center; /* Centra el texto en móviles si se apilan */
+        margin-bottom: 0.25rem; /* Menor margen entre elementos apilados */
+    }
+}
+
 
 .progreso-bar-contenedor {
-    width: 90%;
-    max-width: 50rem;
+    width: 90%; /* Ancho de la barra horizontal */
+    max-width: 50rem; /* Ancho máximo para la barra horizontal */
     background-color: var(--color-borde);
-    border-radius: 3.125rem;
-    height: 1.5625rem;
-    margin: 1rem auto;
-    position: relative;
+    border-radius: 3.125rem; /* Bordes redondeados para la barra horizontal */
+    height: 1.5625rem; /* Altura de la barra horizontal */
+    margin: 0.5rem auto 1rem auto; /* Ajustado el margen superior y el inferior */
+    position: relative; /* Para posicionar el texto de progreso */
     overflow: hidden;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.2); /* Sutil sombra interna */
 }
 
 .progreso-bar {
-    height: 100%;
-    width: 0;
-    background-color: var(--color-secundario);
-    transition: width 0.5s ease-in-out;
+    height: 100%; /* La barra de llenado ocupa todo el alto del contenedor */
+    width: 0; /* Ancho inicial de 0, se llenará horizontalmente */
+    background: linear-gradient(to right, var(--color-secundario), #218838); /* Gradiente de verde, llena de izquierda a derecha */
+    border-radius: 3.125rem; /* Asegura que la barra también tenga bordes redondeados */
+    transition: width 0.5s ease-in-out; /* Transición para el ancho */
 }
 
-#progreso-texto {
+.progreso-text-display { /* Clase para el texto de progreso */
     position: absolute;
     top: 50%;
     left: 50%;
@@ -265,18 +571,63 @@ main section h2 {
     text-shadow: 0.0625rem 0.0625rem 0.125rem rgba(255, 255, 255, 0.5);
 }
 
+/* La insignia de "¡Felicidades! Has ganado una insignia." */
 #insignia-contenedor {
     background-color: var(--color-secundario);
     color: white;
     padding: 1.5rem;
     border-radius: 0.5rem;
     box-shadow: 0 0.25rem 0.5rem var(--color-sombra);
-    text-align: center;
+    text-align: center; /* Mantiene la alineación de texto para navegadores antiguos */
     max-width: 37.5rem;
     margin: 2rem auto;
+
+    /* Centrado vertical y horizontal con Flexbox */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra verticalmente el contenido */
+    align-items: center; /* Centra horizontalmente el contenido */
 }
 
 #insignia-contenedor h3 {
     color: white;
     font-size: 1.5rem;
+    margin-bottom: 0.5rem; /* Ajuste de margen para flexbox */
+}
+
+#insignia-contenedor p {
+    margin-bottom: 0; /* Elimina margen inferior extra si el párrafo es el último */
+}
+
+/* --- Nuevos estilos para la barra de navegación de secciones --- */
+.seccion-nav {
+    display: flex;
+    justify-content: center; /* Centra los botones */
+    gap: 1.5rem; /* Espacio entre los botones */
+    margin-top: 2rem; /* Espacio arriba de la barra */
+    margin-bottom: 2rem; /* Espacio abajo de la barra */
+    padding: 0 1rem; /* Pequeño padding horizontal */
+}
+
+.nav-btn {
+    background-color: #e6f2ff; /* Fondo azul muy claro */
+    border: 2px solid var(--color-primario); /* Borde azul primario */
+    color: var(--color-primario); /* Texto azul primario */
+    padding: 0.75rem 2.5rem; /* Más padding para botones más grandes */
+    border-radius: 30px; /* Bordes más redondeados */
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1.1rem; /* Tamaño de fuente un poco más grande */
+    transition: all 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease; /* Transición suave */
+    min-width: 120px; /* Ancho mínimo para los botones */
+    text-align: center;
+    text-decoration: none; /* Asegura que no haya subrayado si fuera un enlace */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra inicial */
+}
+
+.nav-btn.active, .nav-btn:hover {
+    background-color: var(--color-primario);
+    color: #ffffff;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada al pasar el mouse o activo */
+    transform: translateY(-2px); /* Ligeramente hacia arriba */
 }

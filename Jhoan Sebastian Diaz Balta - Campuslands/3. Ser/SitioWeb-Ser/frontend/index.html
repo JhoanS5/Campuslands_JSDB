@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medical Duarte - Derechos y Deberes</title>
+    <title>Clínica Salud y Bienestar</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@600;700&display=swap"
         rel="stylesheet">
 
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/cards-dinamicas.css">
+    <!-- <link rel="stylesheet" href="./css/cards-dinamicas.css"> -->
 </head>
-
 <body>
     <div id="app-contenedor">
         <section id="seccion-autenticacion">
@@ -26,7 +24,7 @@
                 </header>
 
                 <div class="form-column">
-                    <div id="registro-contenedor" class="form-contenedor">
+                    <div id="registro-contenedor" class="form-contenedor" style="display: none;">
                         <h2>Crea tu cuenta</h2>
                         <form id="registro-form">
                             <label for="nombre">Nombre completo:</label>
@@ -55,7 +53,8 @@
                         <a href="#" id="mostrar-login">¿Ya tienes cuenta? Iniciar Sesión</a>
                     </div>
 
-                    <div id="login-contenedor" class="form-contenedor" style="display: none;">
+                    <!-- Ahora este formulario será visible por defecto -->
+                    <div id="login-contenedor" class="form-contenedor">
                         <h2>Iniciar Sesión</h2>
                         <form id="login-form">
                             <label for="login-num-documento">Número de documento:</label>
@@ -75,21 +74,29 @@
 
         <main id="main-panel" style="display: none;">
             <header class="header-main">
-                <div class="logo-contenedor">
-                    <img src="./assets/images/Logo_Medical_Duarte.png" alt="Logo de la Clínica Medical Duarte" class="logo">
+                <div class="header-left-content">
+                    <div class="logo-contenedor">
+                        <img src="./assets/images/Logo_Medical_Duarte.png" alt="Logo de la Clínica Medical Duarte" class="logo">
+                    </div>
+                    <div class="usuario-info">
+                        <div class="usuario-nombre-y-descripcion">
+                            <h1 id="usuario-nombre-display"></h1>
+                            <p>Conoce tus Derechos y Deberes en la Clínica Medical Duarte.</p>
+                        </div>
+    
+                        <div id="usuario-insignia-inline" class="hidden-insignia">
+                            <span class="insignia-icono">🥇</span>
+                            <span class="insignia-texto">Usuario Ejemplar</span>
+                        </div>
+                        <button id="logout-btn">Cerrar Sesión</button>
+                    </div>
                 </div>
-
-                <div class="usuario-info">
-                    <h1>Hola, <span id="usuario-nombre-display"></span></h1>
-                    <p>Conoce tus Derechos y Deberes en la Clínica Medical Duarte.</p>
-                </div>
-                <button id="logout-btn">Cerrar Sesión</button>
             </header>
 
-            <div class="progreso-bar-contenedor">
-                <div class="progreso-bar" id="progreso-bar"></div>
-                <span id="progreso-texto">0 / 20</span>
-            </div>
+            <nav id="seccion-nav" class="seccion-nav">
+                <button id="btn-derechos" class="nav-btn active">Derechos</button>
+                <button id="btn-deberes" class="nav-btn">Deberes</button>
+            </nav>
 
             <div id="insignia-contenedor" style="display: none;">
                 <h3>¡Felicidades! Has ganado una insignia.</h3>
@@ -98,12 +105,24 @@
 
             <section id="derechos-seccion">
                 <h2>Derechos del Paciente</h2>
-                <div class="cards-grid" id="derechosContenedor"></div>
+                <div id="progreso-bar-derechos-contenedor" class="progreso-bar-contenedor">
+                    <div class="progreso-bar" id="progreso-bar-derechos"></div>
+                    <span id="progreso-texto-derechos" class="progreso-text-display">0 / 10</span>
+                </div>
+                <div class="cards-grid" id="derechosContenedor">
+                    <!-- Las tarjetas de derechos se cargarán aquí -->
+                </div>
             </section>
 
-            <section id="deberes-seccion">
+            <section id="deberes-seccion" style="display: none;">
                 <h2>Deberes del Paciente</h2>
-                <div class="cards-grid" id="deberesContenedor"></div>
+                <div id="progreso-bar-deberes-contenedor" class="progreso-bar-contenedor">
+                    <div class="progreso-bar" id="progreso-bar-deberes"></div>
+                    <span id="progreso-texto-deberes" class="progreso-text-display">0 / 10</span>
+                </div>
+                <div class="cards-grid" id="deberesContenedor">
+                    <!-- Las tarjetas de deberes se cargarán aquí con la misma estructura -->
+                </div>
             </section>
         </main>
     </div>
@@ -111,5 +130,4 @@
     <script src="./js/data.js"></script>
     <script src="./js/main.js"></script>
 </body>
-
 </html>
