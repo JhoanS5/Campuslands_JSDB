@@ -1,0 +1,23 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f8f9fa;
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.container {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#answers button {
+  display: block;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  width: 100%;
+}

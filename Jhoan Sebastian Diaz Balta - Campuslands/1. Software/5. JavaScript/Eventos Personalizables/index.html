@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Manejo de Eventos en JavaScript</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <h1>Demo: Eventos en JavaScript</h1>
+
+  <form id="demoForm">
+    <label>Nombre: <input type="text" name="nombre" id="nombreInput"></label>
+    <button type="submit">Enviar</button>
+  </form>
+
+  <div class="box root" data-name="Raíz">
+    Raíz
+    <div class="box parent" data-name="Padre">
+      Padre
+      <div class="box child" data-name="Hijo">
+        Hijo
+        <button id="customBtn">Emitir Evento Personalizado</button>
+      </div>
+    </div>
+  </div>
+
+  <button id="onceBtn">Click único</button>
+  <button id="toggleColorBtn">Alternar color</button>
+
+  <div class="log" id="logBox">📝 Log de eventos:</div>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,105 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 350px;
+    position: relative;
+    overflow: hidden;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.counter-box {
+    margin: 20px 0;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #343a40;
+}
+
+#colorBtn {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    z-index: 1;
+}
+
+#colorBtn.cambio-color {
+    background-color: #28a745;
+}
+
+#colorBtn:hover {
+    opacity: 0.9;
+}
+
+/* Contenedor del confeti */
+.confetti-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.confetti-piece {
+    position: absolute;
+    width: 10px;
+    height: 15px;
+    background-color: #f00; 
+    top: -20px;
+    border-radius: 3px;
+    opacity: 0;
+}
+
+.confetti-container.active .confetti-piece {
+    animation: fall 2s linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(120vh) rotate(360deg);
+        opacity: 1;
+    }
+}
+
+.confetti-piece:nth-child(even) { background-color: #ff0; }
+.confetti-piece:nth-child(3n) { background-color: #0f0; }
+.confetti-piece:nth-child(5n) { background-color: #0f0; }
+.confetti-piece:nth-child(7n) { background-color: #f0f; }
+.confetti-piece:nth-child(11n) { background-color: #0ff; }
+
+/* Estilo para el log de eventos */
+.log-box {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    padding: 15px;
+    margin-top: 30px;
+    max-height: 150px;
+    overflow-y: auto;
+    text-align: left;
+    font-size: 14px;
+    white-space: pre-wrap;
+}

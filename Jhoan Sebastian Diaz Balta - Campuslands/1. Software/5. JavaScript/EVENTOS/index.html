@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>EVENTOS</title>
+</head>
+
+<body>
+
+    <h1>DEMOSTRACIÓN VISUAL DE LOS EVENTOS</h1>
+    <div class="toast-container" id="toastContainer"></div>
+
+    <div class="container">
+        <!--Mouse Events-->
+        <div class="event-box" onmouseover="showEvent('mouseover', 'mouse', this)"
+            onmouseout="showEvent('mouseout', 'mouse', this)">
+            <strong>EVENTOS DEL MOUSE</strong>
+            <button onclick="showEvent('click', 'mouse', this.parentElement)">Click</button>
+            <button ondblclick="showEvent('dblclick', 'mouse', this.parentElement)">Doble click</button>
+            <div class="log">Eventos aquí..</div>
+        </div>
+
+        <!--Keyboard Events-->
+        <div class="event-box">
+            <strong>Eventos de teclado</strong>
+            <input type="text" placeholder="Escribe algo..."
+                onkeydown="showEvent('keydown', 'keyboard', this.parentElement)"
+                onkeyup="showEvent('keyup', 'keyboard', this.parentElement)">
+            <div class="log">Eventos aquí..</div>
+        </div>
+
+        <!--Eventos de formulario-->
+        <div class="event-box">
+            <strong>Eventos de formulario</strong>
+            <select onchange="showEvent('change', 'form', this.parentElement)">
+                <option disabled selected>Seleciones</option>
+                <option>Opcion A</option>
+                <option>Opcion B</option>
+            </select>
+
+            <input type="text" placeholder="Entrada en vivo" oninput="showEvent('input', 'form', this.parentElement)">
+            <input type="text" placeholder="Focus / Blur" onfocus="showEvent('focus', 'form', this.parentElement)"
+                onblur="showEvent('blur', 'form', this.parentElement)">
+
+            <!-- ✅ Campo de contraseña a validar -->
+            <form id="formularioPassword">
+                <input type="password" id="password" placeholder="Escribe tu contraseña">
+                <small id="mensajeError" style="color: red; display: none;"></small>
+                <button type="submit">Enviar</button>
+            </form>
+
+            <div class="log">Eventos aquí...</div>
+        </div>
+
+        <!--Windows Events-->
+        <div class="event-box" ondrop="drop(event)" ondragover="allowDrop(event)"> <!--El Div va responder a esos eventos.-->
+            <strong>Drag & Drop</strong>
+            <div draggable="true" ondragstart="drag(event)" id="draggable" 
+            style="padding: 10px; background: #dbeafe; border-radius: 6px;">Arrastrame</div> <!--Este me permite indicar que es un evento de arrastrar ese atributo-->
+            <div class="log">Eventos aqui...</div>
+        </div>
+
+        <!--Windows Events-->
+        <div class="event-box">
+            <strong>Eventos de Ventana</strong>
+            <button onclick="alert('Ahora intenta redimensionar o hacer scroll')">Probar ventana</button>
+            <div class="log" id="winLog">Eventos aqui...</div>
+
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
