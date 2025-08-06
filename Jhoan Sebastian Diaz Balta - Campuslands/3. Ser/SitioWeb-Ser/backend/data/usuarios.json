@@ -9,21 +9,12 @@
         "insignia_lectura": true
     },
     {
-        "nombre": "Mayda Isabel Balta",
+        "nombre": "dubi marquez",
         "tipo_documento": "CC",
-        "numero_documento": "11",
-        "habitaciones": "52452",
-        "servicios": "45242",
-        "password_hash": "$2b$12$JhWsSCN2JvI8oQtfHCG0Zu2.JEVrYcz2YzIMGGjCvuT.P2jvWgGyu",
-        "insignia_lectura": true
-    },
-    {
-        "nombre": "Cesar",
-        "tipo_documento": "CC",
-        "numero_documento": "1",
-        "habitaciones": "1",
-        "servicios": "1",
-        "password_hash": "$2b$12$nlsng/gDEiN9.EXTGG3BaeWvdFnkLMb2T0OKGoOYD5eE9wYZi2l7q",
+        "numero_documento": "1090503376",
+        "habitaciones": "007",
+        "servicios": "Pediatria",
+        "password_hash": "$2b$12$iBlBOMgkfXjPK4NMSJE4qu3tiKCL/Yftlmj3CmT3ogFm10Mpx3obO",
         "insignia_lectura": true
     }
 ]
