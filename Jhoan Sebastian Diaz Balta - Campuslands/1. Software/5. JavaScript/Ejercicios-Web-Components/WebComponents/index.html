@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+ <meta charset="UTF-8">
+ <title>Web Components - User Card Extendido</title>
+ <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+
+ <h1>Tarjeta de Usuario (Web Component)</h1>
+
+
+ <user-card
+   id="miTarjeta"
+   name="Ana Gómez"
+   avatar="https://i.pravatar.cc/150?img=3"
+   bio="UX Designer y apasionada del diseño accesible.">
+ </user-card>
+
+
+ <br>
+
+
+ <button onclick="cambiarUsuario()">Cambiar Usuario</button>
+
+
+ <script type="module" src="user-card.js"></script>
+ <script src="script.js"></script>
+</body>
+</html>
