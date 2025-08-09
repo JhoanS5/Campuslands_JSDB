@@ -1,0 +1,12 @@
+.user{
+    background-color: #f0f0f0;
+    border-radius: 0.5rem;
+    padding: 0.625rem;
+    margin-bottom: 0.625rem;
+    font-family: sans-serif;
+}
+
+.user:hover{
+    background-color: #e0e0ff;
+    cursor: pointer;
+}
