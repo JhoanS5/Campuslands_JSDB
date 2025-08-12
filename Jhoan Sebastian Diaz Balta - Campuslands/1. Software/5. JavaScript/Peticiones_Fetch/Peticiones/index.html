@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gestión de Usuarios</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Gestión de Usuarios</h1>
+
+    <form id="usuario-form">
+      <input type="hidden" id="usuario-id" />
+      <input type="text" id="name" placeholder="Nombre" required />
+      <input type="email" id="email" placeholder="Email" required />
+      <input type="number" id="edad" placeholder="Edad" />
+      <input type="text" id="ciudad" placeholder="Ciudad" />
+      <textarea id="biografia" placeholder="Biografía"></textarea>
+      <input type="file" id="foto" accept="image/*" />
+      <button type="submit">Guardar</button>
+    </form>
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th>Edad</th>
+          <th>Ciudad</th>
+          <th>Biografía</th>
+          <th>Foto</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="usuarios-tbody"></tbody>
+    </table>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

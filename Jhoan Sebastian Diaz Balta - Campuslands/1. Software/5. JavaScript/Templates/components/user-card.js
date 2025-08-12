@@ -15,7 +15,7 @@ export class UserCard extends HTMLElement{
     }
     
     async connectedCallback(){
-        const res = await fetch("../user-template.html");
+        const res = await fetch("../templates/user-template.html");
         const html = await res.text();
         const container = document.createElement("div");
         container.innerHTML = html;
